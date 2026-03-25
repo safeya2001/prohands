@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pro Hands empowers Jordanian communities through creative education, puppetry, theatre, and hands-on environmental workshops to build a sustainable future.">
+  <meta property="og:title" content="Pro Hands — Empowering Communities for a Sustainable Future">
+  <meta property="og:description" content="Pro Hands blends creativity, education, and environmental stewardship to build a sustainable future in Jordan.">
+  <meta property="og:image" content="/images/Pro-hands-communication-kit-02.png">
+  <meta property="og:url" content="https://pro-hands.org/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pro Hands — Empowering Communities for a Sustainable Future">
+  <meta name="twitter:description" content="Educating communities through creative mediums like puppetry and theatre for environmental awareness.">
+
+  <title>Pro Hands — Empowering Communities for a Sustainable Future</title>
+
+  <!-- Favicons -->
+  <link rel="icon" href="/images/cropped-fav-32x32.png" sizes="32x32">
+  <link rel="icon" href="/images/cropped-fav-192x192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/images/cropped-fav-180x180.png">
+
+  <!-- Google Fonts: Outfit + Lato -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <!-- Site Stylesheets -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/visual-3d.css">
+  <link rel="stylesheet" href="/css/animations.css">
+
+  <!-- Inline critical layout helpers (hero grid, sr-only, responsive overrides) -->
+  <style>
+    /* Screen-reader only utility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ── Hero two-column layout ── */
+    .hero__layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      padding-top: 100px;
+      padding-bottom: 100px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Hero always renders on a dark gradient */
+    .hero {
+      background: linear-gradient(135deg, var(--dark-navy) 0%, var(--navy) 60%, #1a4a3a 100%);
+    }
+
+    /* Volunteer grid — 4-col becomes 2-col on tablet, 1-col on mobile */
+    .volunteer-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Responsive overrides */
+    @media (max-width: 1024px) {
+      .volunteer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero__layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding-top: 80px;
+        padding-bottom: 60px;
+      }
+      .hero__visual { display: none; }
+      .volunteer-grid { grid-template-columns: repeat(2, 1fr); }
+      .impact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .volunteer-grid { grid-template-columns: 1fr; }
+      .hero__layout { padding-top: 70px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================================================================
+       SKIP TO CONTENT — Accessibility
+  ================================================================ -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+
+  <!-- ================================================================
+       HEADER — Sticky Navigation
+  ================================================================ -->
+  <header class="navbar" role="banner" aria-label="Site header">
+    <div class="container">
+      <nav class="navbar__inner" aria-label="Primary navigation">
+
+        <!-- Logo -->
+        <a href="/" class="navbar__logo" aria-label="Pro Hands — return to homepage">
+          <img
+            src="/images/Pro-hands-communication-kit-02.png"
+            alt="Pro Hands"
+            width="220"
+            height="60"
+            loading="eager"
+            fetchpriority="high"
+          >
+        </a>
+
+        <!-- Desktop nav links -->
+        <ul class="navbar__links" role="list">
+          <li><a href="/" class="active" aria-current="page">Home</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/volunteer">Volunteer With Us</a></li>
+        </ul>
+
+        <!-- Arabic language toggle -->
+        <button
+          class="lang-toggle"
+          id="langToggle"
+          aria-label="Switch to Arabic language"
+          type="button"
+        >عربي</button>
+
+        <!-- Hamburger button — mobile only -->
+        <button
+          class="navbar__hamburger"
+          id="hamburgerBtn"
+          type="button"
+          aria-label="Open mobile menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile full-screen menu -->
+  <nav
+    class="mobile-menu"
+    id="mobileMenu"
+    role="dialog"
+    aria-label="Mobile navigation menu"
+    aria-modal="true"
+    aria-hidden="true"
+  >
+    <a href="/" class="active" aria-current="page">Home</a>
+    <a href="/about">About Us</a>
+    <a href="/projects">Projects</a>
+    <a href="/volunteer">Volunteer With Us</a>
+    <button class="lang-toggle" type="button" aria-label="Switch to Arabic language">عربي</button>
+  </nav>
+
+
+  <!-- ================================================================
+       MAIN CONTENT
+  ================================================================ -->
+  <main id="main-content">
+
+
+    <!-- ==============================================================
+         §1 HERO
+    ============================================================== -->
+    <section
+      id="hero"
+      class="hero section"
+      aria-labelledby="heroHeading"
+    >
+      <!-- Decorative background overlay (CSS gradient applied via class) -->
+      <div class="hero__bg" aria-hidden="true"></div>
+
+      <!-- Floating ambient particles -->
+      <span class="particle particle--1" aria-hidden="true"></span>
+      <span class="particle particle--2" aria-hidden="true"></span>
+      <span class="particle particle--3" aria-hidden="true"></span>
+      <span class="particle particle--4" aria-hidden="true"></span>
+      <span class="particle particle--5" aria-hidden="true"></span>
+      <span class="particle particle--6" aria-hidden="true"></span>
+
+      <div class="container">
+        <div class="hero__layout">
+
+          <!-- Left: headline + CTAs -->
+          <div
+            class="hero__content"
+            data-aos="fade-right"
+            data-aos-duration="800"
+            data-aos-delay="100"
+          >
+            <span class="eyebrow eyebrow--teal">Pro Hands</span>
+
+            <h1 id="heroHeading">
+              Welcome to Pro Hands: Empowering Communities for a Sustainable Future!
+            </h1>
+
+            <p>
+              We educate, inspire, and mobilise communities across Jordan through creative arts, puppetry, and theatre — building a generation of environmental champions.
+            </p>
+
+            <div class="hero__buttons">
+              <a href="/about" class="btn btn--yellow">Learn More</a>
+              <a href="/volunteer" class="btn btn--teal-outline">Volunteer With Us</a>
+            </div>
+          </div>
+
+          <!-- Right: 3D globe visual -->
+          <div
+            class="hero__visual"
+            data-aos="fade-left"
+            data-aos-duration="900"
+            data-aos-delay="250"
+            aria-hidden="true"
+          >
+            <div
+              class="globe-3d"
+              role="img"
+              aria-label="Decorative 3D globe representing global environmental awareness"
+            >
+              <div class="globe-3d__inner">
+                <div class="globe-3d__ring globe-3d__ring--1"></div>
+                <div class="globe-3d__ring globe-3d__ring--2"></div>
+                <div class="globe-3d__ring globe-3d__ring--3"></div>
+                <div class="globe-3d__core"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Animated scroll chevron -->
+      <a
+        href="#mission"
+        class="hero__scroll"
+        aria-label="Scroll down to Mission, Vision and Values section"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </a>
+
+    </section><!-- /#hero -->
+
+
+    <!-- ==============================================================
+         §2 MISSION, VISION & VALUES
+    ============================================================== -->
+    <section
+      id="mission"
+      class="section section--grey"
+      aria-labelledby="missionHeading"
+    >
+      <div class="container">
+
+        <header
+          class="section-header"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
+          <span class="eyebrow">Our Purpose</span>
+          <h2 id="missionHeading">Mission, Vision &amp; Values</h2>
+          <p>Three pillars that guide every project, every workshop, and every puppet show we produce.</p>
+        </header>
+
+        <div class="mvv-grid" role="list" aria-label="Mission, Vision and Values cards">
+
+          <!-- Card 1 — Mission -->
+          <article
+            class="mvv-card card-3d reveal"
+            role="listitem"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-aos-duration="600"
+          >
+            <div class="mvv-card__icon" aria-hidden="true">
+              <!-- Lightbulb / torch icon -->
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <line x1="9" y1="18" x2="15" y2="18"/>
+                <line x1="10" y1="22" x2="14" y2="22"/>
+                <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/>
+              </svg>
+            </div>
+            <h3>Mission</h3>
+            <p>Educating communities through creative mediums like puppetry and theatre for environmental awareness.</p>
+            <a
+              href="https://pro-hands.org/petitions/"
+              class="btn btn--sm btn--navy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Read more about our Mission"
+            >Read More</a>
+          </article>
+
+          <!-- Card 2 — Vision -->
+          <article
+            class="mvv-card card-3d reveal"
+            role="listitem"
+            data-aos="fade-up"
+            data-aos-delay="200"
+            data-aos-duration="600"
+          >
+            <div class="mvv-card__icon" aria-hidden="true">
+              <!-- Eye / horizon icon -->
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </div>
+            <h3>Vision</h3>
+            <p>A sustainable Jordan led by its own communities, inspiring environmental stewardship and responsibility.</p>
+            <a
+              href="https://pro-hands.org/petitions/"
+              class="btn btn--sm btn--navy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Read more about our Vision"
+            >Read More</a>
+          </article>
+
+          <!-- Card 3 — Values -->
+          <article
+            class="mvv-card card-3d reveal"
+            role="listitem"
+            data-aos="fade-up"
+            data-aos-delay="300"
+            data-aos-duration="600"
+          >
+            <div class="mvv-card__icon" aria-hidden="true">
+              <!-- Heart / leaf icon -->
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h3>Values</h3>
+            <p>Inclusivity, creativity, sustainability and community engagement — fostering long-term impact.</p>
+            <a
+              href="https://pro-hands.org/petitions/"
+              class="btn btn--sm btn--navy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Read more about our Values"
+            >Read More</a>
+          </article>
+
+        </div>
+      </div>
+    </section><!-- /#mission -->
+
+
+    <!-- ==============================================================
+         §3 ABOUT US
+    ============================================================== -->
+    <section
+      id="about"
+      class="section"
+      aria-labelledby="aboutHeading"
+    >
+      <div class="container">
+        <div class="split">
+
+          <!-- Left column: image with stat counter overlay -->
+          <div
+            class="split__image reveal"
+            data-aos="fade-right"
+            data-aos-duration="700"
+            data-aos-delay="100"
+          >
+            <img
+              src="/images/group-of-environmental-conservation-people-hands-p-PXQ49EB-1.jpg"
+              alt="Group of environmental conservation volunteers joining hands in a circle, symbolising community action"
+              width="600"
+              height="600"
+              loading="lazy"
+            >
+            <!-- Animated stat counter badge -->
+            <div
+              class="split__stat"
+              aria-label="Statistic: 480 tons of trash generated every minute worldwide"
+            >
+              <div class="split__stat-number">
+                <span
+                  class="js-counter"
+                  data-target="480"
+                  data-suffix="ton"
+                  aria-live="polite"
+                >480</span><span style="font-size:1.1rem;font-weight:700;margin-left:2px">ton</span>
+              </div>
+              <div class="split__stat-label">of trash every minute</div>
+            </div>
+          </div>
+
+          <!-- Right column: text content -->
+          <div
+            class="split__text reveal"
+            data-aos="fade-left"
+            data-aos-duration="700"
+            data-aos-delay="200"
+          >
+            <span class="eyebrow">About Us</span>
+            <h2 id="aboutHeading">At Pro Hands,</h2>
+            <p>
+              we blend creativity, education, and environmental stewardship to build a sustainable future in Jordan. Through innovative projects like puppet shows, open theatre performances, and hands-on workshops, we address critical environmental issues and inspire the next generation to embrace eco-friendly practices.
+            </p>
+            <p>
+              Founded on the belief that art is one of the most powerful vehicles for social change, Pro Hands reaches communities across Jordan — delivering environmental messages through laughter, movement, and storytelling.
+            </p>
+            <a
+              href="https://pro-hands.org/petitions/"
+              class="btn btn--orange"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Learn more about Pro Hands"
+            >Learn More</a>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /#about -->
+
+
+    <!-- ==============================================================
+         §4 OUR PROJECTS
+    ============================================================== -->
+    <section
+      id="projects"
+      class="section section--grey"
+      aria-labelledby="projectsHeading"
+    >
+      <div class="container">
+
+        <header
+          class="section-header"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
+          <span class="eyebrow">Take Action</span>
+          <h2 id="projectsHeading">Our Projects</h2>
+          <p>From puppetry to stand-up comedy and alternative transport, we use every creative tool to drive environmental action.</p>
+        </header>
+
+        <div class="projects-grid" role="list" aria-label="Our current and upcoming projects">
+
+          <!-- Project 1 — Puppet Training -->
+          <article
+            class="project-card card-3d reveal"
+            role="listitem"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-aos-duration="600"
+          >
+            <div class="project-card__icon">
+              <img
+                src="/images/manipulation.png"
+                alt="Puppet hand manipulation illustration"
+                width="80"
+                height="80"
+                loading="lazy"
+              >
+            </div>
+            <h3>Puppet Training for Sustainable Minds</h3>
+            <p>Training community educators to use puppetry as a vehicle for environmental storytelling and youth engagement.</p>
+            <a
+              href="https://pro-hands.org/puppet-training-for-sustainable-minds/"
+              class="btn btn--sm btn--navy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Read more about Puppet Training for Sustainable Minds"
+            >Read More</a>
+          </article>
+
+          <!-- Project 2 — Stand-up Comedy -->
+          <article
+            class="project-card card-3d reveal"
+            role="listitem"
+            data-aos="fade-up"
+            data-aos-delay="200"
+            data-aos-duration="600"
+          >
+            <div class="project-card__icon">
+              <img
+                src="/images/stand-up-comedy.png"
+                alt="Stand-up comedy microphone illustration"
+                width="80"
+                height="80"
+                loading="lazy"
+              >
+            </div>
+            <h3>Standup Comedy for Environmental Awareness</h3>
+            <p>Using humour and open-stage performances to deliver powerful environmental messages to diverse audiences.</p>
+            <a
+              href="https://pro-hands.org/standup-comedy-for-environmental-awareness/"
+              class="btn btn--sm btn--navy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Read more about Standup Comedy for Environmental Awareness"
+            >Read More</a>
+          </article>
+
+          <!-- Project 3 — Alternative Transportation -->
+          <article
+            class="project-card card-3d reveal"
+            role="listitem"
+            data-aos="fade-up"
+            data-aos-delay="300"
+            data-aos-duration="600"
+          >
+            <div class="project-card__icon">
+              <img
+                src="/images/bike.png"
+                alt="Bicycle illustration representing alternative transportation"
+                width="80"
+                height="80"
+                loading="lazy"
+              >
+            </div>
+            <h3>Upcoming Project: Alternative Transportation Solutions</h3>
+            <p>Promoting cycling and low-carbon mobility as sustainable daily habits across Jordanian cities.</p>
+            <a
+              href="https://pro-hands.org/projects/"
+              class="btn btn--sm btn--navy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Read more about Alternative Transportation Solutions"
+            >Read More</a>
+          </article>
+
+        </div>
+      </div>
+    </section><!-- /#projects -->
+
+
+    <!-- ==============================================================
+         §5 VOLUNTEER WITH US
+    ============================================================== -->
+    <section
+      id="volunteer"
+      class="section"
+      aria-labelledby="volunteerHeading"
+    >
+      <div class="container">
+
+        <header
+          class="section-header"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
+          <span class="eyebrow">Join Us</span>
+          <h2 id="volunteerHeading">Volunteer With Us</h2>
+          <p>Join our growing community of change-makers. Whether you perform, teach, or organise — there is a role for you.</p>
+        </header>
+
+        <div
+          class="volunteer-grid roles-grid"
+          role="list"
+          aria-label="Available volunteer positions"
+        >
+
+          <!-- Role 1 — Puppetry Trainer -->
+          <article
+            class="role-card card-3d reveal"
+            role="listitem"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-aos-duration="600"
+          >
+            <div class="role-card__icon" aria-hidden="true">
+              <!-- Hands / puppet icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/>
+                <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/>
+                <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/>
+                <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>
+              </svg>
+            </div>
+            <h4>Puppetry Trainer</h4>
+            <a
+              href="https://pro-hands.org/volunteer-with-us/"
+              class="btn btn--sm btn--navy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Apply now for the Puppetry Trainer volunteer position"
+            >Apply Now</a>
+          </article>
+
+          <!-- Role 2 — Theatre Coach -->
+          <article
+            class="role-card card-3d reveal"
+            role="listitem"
+            data-aos="fade-up"
+            data-aos-delay="200"
+            data-aos-duration="600"
+          >
+            <div class="role-card__icon" aria-hidden="true">
+              <!-- Theatre / stage icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M2 10s3-3 3-8h14c0 5 3 8 3 8M2 10s2 9 10 12C20 19 22 10 22 10"/>
+                <path d="M10 15c.5.5 1 .8 2 .8s1.5-.3 2-.8"/>
+                <line x1="9" y1="12" x2="9.01" y2="12"/>
+                <line x1="15" y1="12" x2="15.01" y2="12"/>
+              </svg>
+            </div>
+            <h4>Theatre Coach</h4>
+            <a
+              href="https://pro-hands.org/volunteer-with-us/"
+              class="btn btn--sm btn--navy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Apply now for the Theatre Coach volunteer position"
+            >Apply Now</a>
+          </article>
+
+          <!-- Role 3 — Environmental Educator -->
+          <article
+            class="role-card card-3d reveal"
+            role="listitem"
+            data-aos="fade-up"
+            data-aos-delay="300"
+            data-aos-duration="600"
+          >
+            <div class="role-card__icon" aria-hidden="true">
+              <!-- Shield / nature icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h4>Environmental Educator</h4>
+            <a
+              href="https://pro-hands.org/volunteer-with-us/"
+              class="btn btn--sm btn--navy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Apply now for the Environmental Educator volunteer position"
+            >Apply Now</a>
+          </article>
+
+          <!-- Role 4 — Community Outreach -->
+          <article
+            class="role-card card-3d reveal"
+            role="listitem"
+            data-aos="fade-up"
+            data-aos-delay="400"
+            data-aos-duration="600"
+          >
+            <div class="role-card__icon" aria-hidden="true">
+              <!-- People / community icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h4>Community Outreach</h4>
+            <a
+              href="https://pro-hands.org/volunteer-with-us/"
+              class="btn btn--sm btn--navy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Apply now for the Community Outreach volunteer position"
+            >Apply Now</a>
+          </article>
+
+        </div>
+      </div>
+    </section><!-- /#volunteer -->
+
+
+    <!-- ==============================================================
+         §6 OUR IMPACT — dark background
+    ============================================================== -->
+    <section
+      id="impact"
+      class="section section--dark dark-section"
+      aria-labelledby="impactHeading"
+    >
+      <!-- Background image with dark overlay (overlay applied via dark-section__bg::after in CSS) -->
+      <div
+        class="dark-section__bg"
+        style="background-image: url('/images/aerial-view-of-green-forests-and-blue-lakes-and-ri-T3L66K7a-1.jpg');"
+        role="img"
+        aria-label="Aerial view of green forests and blue lakes — representing the nature we protect"
+      ></div>
+
+      <div class="container dark-section__content">
+
+        <header
+          class="section-header text-white"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
+          <h2
+            id="impactHeading"
+            style="color:var(--white);"
+          >Our Impact</h2>
+          <p style="color:rgba(255,255,255,.8);">
+            Every show, every workshop, every conversation moves the needle on environmental awareness across Jordan.
+          </p>
+        </header>
+
+        <div class="impact-grid" role="list" aria-label="Impact statistics">
+
+          <!-- Stat 1 — 480 ton of trash -->
+          <div
+            class="impact-card reveal"
+            role="listitem"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-aos-duration="600"
+          >
+            <div class="impact-card__visual" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <polyline points="3 6 5 6 21 6"/>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+              </svg>
+            </div>
+            <div class="impact-card__body">
+              <div class="impact-card__number">
+                <span class="js-counter" data-target="480" aria-live="polite">480</span
+                ><span style="font-size:1.1rem;font-weight:600;margin-left:2px">ton</span>
+              </div>
+              <h3>Waste Generated Every Minute</h3>
+              <p>The urgent global reality driving our mission to educate and inspire Jordanian communities.</p>
+            </div>
+          </div>
+
+          <!-- Stat 2 — Communities reached -->
+          <div
+            class="impact-card reveal"
+            role="listitem"
+            data-aos="fade-up"
+            data-aos-delay="200"
+            data-aos-duration="600"
+          >
+            <div class="impact-card__visual" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="impact-card__body">
+              <div class="impact-card__number">
+                <span class="js-counter" data-target="12" aria-live="polite">12</span
+                ><span style="font-size:1.1rem;font-weight:600">+</span>
+              </div>
+              <h3>Communities Reached</h3>
+              <p>Environmental awareness programmes delivered across multiple communities throughout Jordan.</p>
+            </div>
+          </div>
+
+          <!-- Stat 3 — Active projects -->
+          <div
+            class="impact-card reveal"
+            role="listitem"
+            data-aos="fade-up"
+            data-aos-delay="300"
+            data-aos-duration="600"
+          >
+            <div class="impact-card__visual" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div class="impact-card__body">
+              <div class="impact-card__number">
+                <span class="js-counter" data-target="3" aria-live="polite">3</span
+                ><span style="font-size:1.1rem;font-weight:600">+</span>
+              </div>
+              <h3>Active Projects</h3>
+              <p>From puppet training to comedy and alternative transportation — real projects making real change.</p>
+            </div>
+          </div>
+
+          <!-- Stat 4 — Volunteers -->
+          <div
+            class="impact-card reveal"
+            role="listitem"
+            data-aos="fade-up"
+            data-aos-delay="400"
+            data-aos-duration="600"
+          >
+            <div class="impact-card__visual" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div class="impact-card__body">
+              <div class="impact-card__number">
+                <span class="js-counter" data-target="50" aria-live="polite">50</span
+                ><span style="font-size:1.1rem;font-weight:600">+</span>
+              </div>
+              <h3>Volunteers &amp; Educators</h3>
+              <p>Dedicated community members who give their time to train, perform, and spread awareness.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /#impact -->
+
+
+    <!-- ==============================================================
+         §7 NEWSLETTER — STAY CONNECTED
+    ============================================================== -->
+    <section
+      id="newsletter"
+      class="cta-banner"
+      aria-labelledby="newsletterHeading"
+    >
+      <!-- Background image with dark overlay -->
+      <div
+        class="cta-banner__bg"
+        style="background-image: url('/images/aerial-view-of-green-forest-with-tall-pine-trees-a-DTG8JWQ-1.jpg');"
+        role="img"
+        aria-label="Aerial view of a lush green pine forest"
+      ></div>
+
+      <div class="container cta-banner__content">
+
+        <div
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
+          <h2 id="newsletterHeading">Stay Connected</h2>
+          <p>Subscribe for updates on our projects and environmental initiatives.</p>
+        </div>
+
+        <form
+          class="cta-banner__form"
+          action="#"
+          method="post"
+          aria-label="Newsletter subscription form"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-delay="200"
+          novalidate
+        >
+          <label for="newsletterEmail" class="sr-only">Your email address</label>
+          <input
+            type="email"
+            id="newsletterEmail"
+            name="email"
+            placeholder="Your email address"
+            autocomplete="email"
+            required
+            aria-required="true"
+            aria-describedby="newsletterHint"
+          >
+          <span id="newsletterHint" class="sr-only">
+            Enter your email address to subscribe to updates from Pro Hands.
+          </span>
+          <button type="submit" class="btn btn--yellow">Subscribe</button>
+        </form>
+
+      </div>
+    </section><!-- /#newsletter -->
+
+
+  </main><!-- /#main-content -->
+
+
+  <!-- ================================================================
+       FOOTER
+  ================================================================ -->
+  <footer class="footer" role="contentinfo" aria-label="Site footer">
+    <div class="container">
+      <div class="footer__grid">
+
+        <!-- Column 1: Brand & social -->
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <a href="/" aria-label="Pro Hands — return to homepage">
+              <img
+                src="/images/Pro-hands-communication-kit-02.png"
+                alt="Pro Hands"
+                width="160"
+                height="44"
+                loading="lazy"
+              >
+            </a>
+          </div>
+          <p style="font-size:.9rem;max-width:280px;line-height:1.6;">
+            Empowering Jordanian communities through creative arts, education, and environmental stewardship.
+          </p>
+          <!-- Social links -->
+          <nav class="footer__social" aria-label="Social media links">
+            <a
+              href="https://www.facebook.com/prohandsjo"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Pro Hands on Facebook (opens in new tab)"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/prohandsjo/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Pro Hands on Instagram (opens in new tab)"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/pro-hands"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Pro Hands on LinkedIn (opens in new tab)"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Column 2: Navigation links -->
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <h5>Navigation</h5>
+          <ul class="footer__links" role="list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/volunteer">Volunteer With Us</a></li>
+          </ul>
+        </nav>
+
+        <!-- Column 3: Contact details -->
+        <div class="footer__contact-col">
+          <h5>Contact Us</h5>
+          <ul class="footer__contact" role="list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <a
+                href="tel:+96279510604"
+                aria-label="Call Pro Hands at +962 7 9510 6049"
+              >+962 7 9510 6049</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <a
+                href="mailto:ProHands.Training@protraining.org"
+                aria-label="Email Pro Hands at ProHands.Training@protraining.org"
+              >ProHands.Training@protraining.org</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Amman, Jordan</span>
+            </li>
+          </ul>
+        </div>
+
+      </div><!-- /.footer__grid -->
+
+      <!-- Bottom bar -->
+      <div class="footer__bottom">
+        <p>&copy; 2025 Pro Hands. All rights reserved.</p>
+      </div>
+
+    </div>
+  </footer><!-- /.footer -->
+
+
+  <!-- ================================================================
+       SCRIPTS
+  ================================================================ -->
+
+  <!-- AOS — Animate on Scroll -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      easing: 'ease-out-cubic'
+    });
+  </script>
+
+  <!-- Site animations & interactions -->
+  <script src="/js/animations.js"></script>
+
+</body>
+</html>

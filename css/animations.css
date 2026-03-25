@@ -1,0 +1,959 @@
+/* ============================================================
+   PRO HANDS — Animation & Interaction System
+   animations.css  |  Animation Agent Deliverable
+   ============================================================
+   Design philosophy: purposeful motion that reflects the
+   organic, community-driven spirit of Pro Hands. Timing is
+   generous but never sluggish; easing follows natural physics.
+   GPU-composited properties (opacity, transform) are used
+   exclusively to keep every animation at 60 fps.
+   ============================================================ */
+
+
+/* ============================================================
+   §0  CSS CUSTOM PROPERTIES — ANIMATION TOKENS
+   ============================================================ */
+:root {
+  /* Durations */
+  --dur-xs:   150ms;
+  --dur-sm:   250ms;
+  --dur-md:   400ms;
+  --dur-lg:   600ms;
+  --dur-xl:   900ms;
+  --dur-2xl: 1200ms;
+
+  /* Easings */
+  --ease-out-quart:  cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo:   cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-circ:cubic-bezier(0.85, 0, 0.15, 1);
+  --ease-spring:     cubic-bezier(0.34, 1.56, 0.64, 1);   /* slight overshoot */
+  --ease-organic:    cubic-bezier(0.45, 0.05, 0.35, 0.95);
+
+  /* Stagger steps */
+  --stagger-step: 100ms;
+
+  /* Cursor glow — JS will overwrite these */
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+
+  /* 3D tilt state — JS will overwrite these per-card */
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+}
+
+
+/* ============================================================
+   §1  KEYFRAMES
+   ============================================================ */
+
+/* --- Scroll-reveal entrances --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(80px) scaleX(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleX(1);
+  }
+}
+
+/* --- Hero — floating globe / illustration --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25%       { transform: translateY(-12px) rotate(1deg); }
+  50%       { transform: translateY(-20px) rotate(0deg); }
+  75%       { transform: translateY(-10px) rotate(-1deg); }
+}
+
+/* --- Hero — background particle drift --- */
+@keyframes drift {
+  0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+  33%  { transform: translate(30px, -20px) rotate(120deg) scale(1.08); }
+  66%  { transform: translate(-20px, 15px) rotate(240deg) scale(0.96); }
+  100% { transform: translate(0, 0) rotate(360deg) scale(1); }
+}
+
+/* --- Organic blob morphing for hero background shapes --- */
+@keyframes morphBlob {
+  0%   { border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; transform: scale(1) rotate(0deg); }
+  20%  { border-radius: 40% 60% 45% 55% / 60% 40% 55% 45%; }
+  40%  { border-radius: 55% 45% 65% 35% / 40% 55% 45% 60%; transform: scale(1.04) rotate(8deg); }
+  60%  { border-radius: 45% 55% 38% 62% / 55% 45% 60% 40%; }
+  80%  { border-radius: 62% 38% 50% 50% / 42% 58% 42% 58%; transform: scale(0.97) rotate(-4deg); }
+  100% { border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; transform: scale(1) rotate(0deg); }
+}
+
+/* --- Button ripple expansion --- */
+@keyframes rippleExpand {
+  from {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(3.5);
+  }
+}
+
+/* --- Primary CTA pulse glow --- */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 0 rgba(245, 197, 24, 0.55),
+      0 4px 20px rgba(245, 197, 24, 0.20);
+  }
+  50% {
+    box-shadow:
+      0 0 0 12px rgba(245, 197, 24, 0),
+      0 4px 32px rgba(245, 197, 24, 0.35);
+  }
+}
+
+@keyframes pulseOrange {
+  0%, 100% {
+    box-shadow:
+      0 0 0 0 rgba(245, 166, 35, 0.55),
+      0 4px 20px rgba(245, 166, 35, 0.20);
+  }
+  50% {
+    box-shadow:
+      0 0 0 12px rgba(245, 166, 35, 0),
+      0 4px 32px rgba(245, 166, 35, 0.35);
+  }
+}
+
+/* --- Page-load entrance fade --- */
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* --- Counter number roll (CSS layer — JS drives the values) --- */
+@keyframes countUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* --- Nav underline slide --- */
+@keyframes slideUnderline {
+  from { transform: scaleX(0); transform-origin: left center; }
+  to   { transform: scaleX(1); transform-origin: left center; }
+}
+
+/* --- Spinner (loading states) --- */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Shimmer (skeleton loading) --- */
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position:  200% center; }
+}
+
+
+/* ============================================================
+   §2  PAGE LOAD — ABOVE-THE-FOLD ENTRANCE
+   ============================================================ */
+body {
+  animation: pageFadeIn var(--dur-md) var(--ease-out-quart) both;
+}
+
+/* Hero content entrance — staggered with delay cascade */
+.hero__content {
+  animation: fadeInUp var(--dur-xl) var(--ease-out-expo) 200ms both;
+}
+
+.hero__content .eyebrow {
+  animation: fadeInUp var(--dur-lg) var(--ease-out-expo) 300ms both;
+}
+
+.hero__content h1 {
+  animation: fadeInUp var(--dur-xl) var(--ease-out-expo) 420ms both;
+}
+
+.hero__content p {
+  animation: fadeInUp var(--dur-lg) var(--ease-out-expo) 580ms both;
+}
+
+.hero__buttons {
+  animation: fadeInUp var(--dur-lg) var(--ease-out-expo) 720ms both;
+}
+
+.hero__scroll {
+  animation: fadeInUp var(--dur-md) var(--ease-out-expo) 1000ms both;
+}
+
+
+/* ============================================================
+   §3  SCROLL-REVEAL — INTERSECTION OBSERVER CLASSES
+   ============================================================ */
+
+/* Base: element starts hidden, JS adds .is-visible when in viewport */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity  var(--dur-lg) var(--ease-out-expo),
+    transform var(--dur-lg) var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Directional variants */
+.reveal--left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition:
+    opacity  var(--dur-lg) var(--ease-out-expo),
+    transform var(--dur-lg) var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.reveal--left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal--right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition:
+    opacity  var(--dur-lg) var(--ease-out-expo),
+    transform var(--dur-lg) var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.reveal--right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal--scale {
+  opacity: 0;
+  transform: scale(0.88);
+  transition:
+    opacity   var(--dur-lg) var(--ease-out-expo),
+    transform var(--dur-lg) var(--ease-spring);
+  will-change: opacity, transform;
+}
+
+.reveal--scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.reveal--slide-bottom {
+  opacity: 0;
+  transform: translateY(80px) scaleX(0.96);
+  transition:
+    opacity   var(--dur-xl) var(--ease-out-expo),
+    transform var(--dur-xl) var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.reveal--slide-bottom.is-visible {
+  opacity: 1;
+  transform: translateY(0) scaleX(1);
+}
+
+/* Staggered delay modifiers — apply to siblings via JS or manually */
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+.reveal-delay-4 { transition-delay: 400ms; }
+.reveal-delay-5 { transition-delay: 500ms; }
+
+/* When parent has .reveal-children, JS auto-staggers children */
+.reveal-children > * {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity  var(--dur-lg) var(--ease-out-expo),
+    transform var(--dur-lg) var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.reveal-children.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   §4  NAVIGATION
+   ============================================================ */
+
+/* Compact sticky nav on scroll — JS toggles .nav-scrolled */
+.nav-scrolled,
+.navbar.scrolled {
+  padding: 8px 0 !important;
+  box-shadow: 0 2px 24px rgba(45, 59, 85, 0.18) !important;
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  background: rgba(255, 255, 255, 0.95) !important;
+  transition:
+    padding    var(--dur-md) var(--ease-out-quart),
+    box-shadow var(--dur-md) var(--ease-out-quart),
+    background var(--dur-md) var(--ease-out-quart) !important;
+}
+
+.nav-scrolled .navbar__logo img,
+.navbar.scrolled .navbar__logo img {
+  height: 44px;
+  transition: height var(--dur-md) var(--ease-out-quart);
+}
+
+/* Nav link sliding underline — replaces simple width: 0 → 100% approach
+   with a transform-based version for GPU compositing */
+.navbar__links a {
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar__links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform var(--dur-sm) var(--ease-out-quart);
+}
+
+.navbar__links a:hover::after,
+.navbar__links a.active::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* Mobile menu links stagger in */
+.mobile-menu.open a {
+  animation: fadeInUp var(--dur-md) var(--ease-out-expo) both;
+}
+
+.mobile-menu.open a:nth-child(1) { animation-delay:  80ms; }
+.mobile-menu.open a:nth-child(2) { animation-delay: 160ms; }
+.mobile-menu.open a:nth-child(3) { animation-delay: 240ms; }
+.mobile-menu.open a:nth-child(4) { animation-delay: 320ms; }
+.mobile-menu.open a:nth-child(5) { animation-delay: 400ms; }
+
+
+/* ============================================================
+   §5  BUTTONS — RIPPLE, SCALE, GLOW
+   ============================================================ */
+
+/* All buttons: shared interaction upgrades */
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform    var(--dur-sm) var(--ease-spring),
+    box-shadow   var(--dur-sm) var(--ease-out-quart),
+    background   var(--dur-sm) var(--ease-out-quart),
+    border-color var(--dur-sm) var(--ease-out-quart);
+}
+
+/* Ripple pseudo-element — JS will set --ripple-x / --ripple-y on click */
+.btn::after {
+  content: '';
+  position: absolute;
+  left: var(--ripple-x, 50%);
+  top:  var(--ripple-y, 50%);
+  width: 160px;
+  height: 160px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.btn.ripple-active::after {
+  animation: rippleExpand 550ms var(--ease-out-expo) forwards;
+}
+
+.btn:hover {
+  transform: scale(1.05) translateY(-2px);
+}
+
+.btn:active {
+  transform: scale(0.97) translateY(0);
+  transition-duration: var(--dur-xs);
+}
+
+/* Yellow CTA — pulse animation */
+.btn--yellow {
+  animation: pulse 2.8s ease-in-out 1.5s infinite;
+}
+
+.btn--yellow:hover,
+.btn--yellow:focus {
+  animation: none;
+  box-shadow:
+    0 0 0 4px rgba(245, 197, 24, 0.30),
+    0 8px 32px rgba(245, 197, 24, 0.40);
+}
+
+/* Orange button glow */
+.btn--orange:hover {
+  box-shadow:
+    0 0 0 4px rgba(245, 166, 35, 0.28),
+    0 8px 28px rgba(245, 166, 35, 0.38);
+}
+
+/* Teal outline button — fill sweep on hover */
+.btn--teal-outline {
+  background: transparent;
+  transition:
+    background   var(--dur-sm) var(--ease-out-quart),
+    color        var(--dur-sm) var(--ease-out-quart),
+    transform    var(--dur-sm) var(--ease-spring),
+    box-shadow   var(--dur-sm) var(--ease-out-quart);
+}
+
+/* Link-arrow micro-interaction */
+.link-arrow {
+  transition:
+    gap   var(--dur-sm) var(--ease-spring),
+    color var(--dur-sm) var(--ease-out-quart);
+}
+
+.link-arrow::after {
+  display: inline-block;
+  transition: transform var(--dur-sm) var(--ease-spring);
+}
+
+.link-arrow:hover::after {
+  transform: translateX(4px);
+}
+
+
+/* ============================================================
+   §6  PROJECT CARDS — IMAGE ZOOM + OVERLAY FADE
+   ============================================================ */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  transition: box-shadow var(--dur-md) var(--ease-out-quart);
+}
+
+.project-card:hover {
+  box-shadow: 0 20px 60px rgba(45, 59, 85, 0.22);
+}
+
+/* Image zoom */
+.project-card__image,
+.project-card img {
+  transition: transform var(--dur-lg) var(--ease-out-quart);
+  will-change: transform;
+}
+
+.project-card:hover .project-card__image,
+.project-card:hover img {
+  transform: scale(1.08);
+}
+
+/* Overlay fade-in */
+.project-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(45, 59, 85, 0.82) 0%,
+    rgba(45, 59, 85, 0.20) 60%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity var(--dur-md) var(--ease-out-quart);
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+}
+
+.project-card:hover .project-card__overlay {
+  opacity: 1;
+}
+
+/* Content slides up inside overlay */
+.project-card__overlay-content {
+  transform: translateY(12px);
+  transition: transform var(--dur-md) var(--ease-out-expo);
+}
+
+.project-card:hover .project-card__overlay-content {
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   §7  VALUE / FEATURE CARDS — LIFT + ENHANCED SHADOW
+   ============================================================ */
+.value-card,
+.mission-card,
+.feature-card,
+.card {
+  transition:
+    transform    var(--dur-md) var(--ease-spring),
+    box-shadow   var(--dur-md) var(--ease-out-quart),
+    border-color var(--dur-md) var(--ease-out-quart);
+  will-change: transform;
+}
+
+.value-card:hover,
+.mission-card:hover,
+.feature-card:hover,
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 16px 48px rgba(45, 59, 85, 0.16),
+    0 4px 12px rgba(45, 59, 85, 0.08);
+}
+
+/* Icon pop on card hover */
+.value-card:hover .card__icon,
+.value-card:hover .value-icon,
+.mission-card:hover svg {
+  transform: scale(1.15) rotate(-3deg);
+  transition: transform var(--dur-sm) var(--ease-spring);
+}
+
+.card__icon,
+.value-icon,
+.mission-card svg {
+  transition: transform var(--dur-sm) var(--ease-out-quart);
+}
+
+
+/* ============================================================
+   §8  3D CARD TILT (CSS LAYER)
+   JS supplies --tilt-x and --tilt-y per card on mousemove
+   ============================================================ */
+.card-3d {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.card-3d__inner {
+  transition: transform var(--dur-sm) var(--ease-out-quart);
+  transform: rotate3d(0, 0, 0, 0deg);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.card-3d:hover .card-3d__inner {
+  /* Subtle default — JS overrides with precise mouse values */
+  transform: rotate3d(1, -1, 0, 6deg) translateY(-4px);
+  box-shadow:
+    0 24px 60px rgba(45, 59, 85, 0.20),
+    0 8px 20px rgba(45, 59, 85, 0.10);
+}
+
+/* Glossy surface shimmer on tilt */
+.card-3d__inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity var(--dur-md) var(--ease-out-quart);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-3d:hover .card-3d__inner::before {
+  opacity: 1;
+}
+
+
+/* ============================================================
+   §9  HERO — FLOATING GLOBE & PARTICLE SHAPES
+   ============================================================ */
+
+/* Floating element (globe, illustration, decorative asset) */
+.hero__globe,
+.hero__floating {
+  animation: float 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Stagger multiple floating elements */
+.hero__floating:nth-child(2) { animation-delay: -2s; }
+.hero__floating:nth-child(3) { animation-delay: -4s; }
+
+/* Decorative background particles / shapes */
+.hero__particle,
+.bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* Blob shapes in hero background */
+.hero__blob,
+.bg-blob {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform, border-radius;
+  animation: morphBlob 12s var(--ease-organic) infinite;
+  opacity: 0.12;
+}
+
+.hero__blob:nth-child(1),
+.bg-blob:nth-child(1) {
+  animation-duration: 10s;
+  animation-delay: 0s;
+}
+
+.hero__blob:nth-child(2),
+.bg-blob:nth-child(2) {
+  animation-duration: 14s;
+  animation-delay: -5s;
+}
+
+.hero__blob:nth-child(3),
+.bg-blob:nth-child(3) {
+  animation-duration: 8s;
+  animation-delay: -8s;
+}
+
+/* Drifting particles */
+.hero__particle:nth-child(1)  { animation: drift 18s linear infinite;       animation-delay:   0s; }
+.hero__particle:nth-child(2)  { animation: drift 22s linear infinite;       animation-delay:  -6s; }
+.hero__particle:nth-child(3)  { animation: drift 15s linear infinite;       animation-delay: -11s; }
+.hero__particle:nth-child(4)  { animation: drift 26s linear infinite;       animation-delay:  -3s; }
+.hero__particle:nth-child(5)  { animation: drift 20s linear infinite;       animation-delay:  -9s; }
+
+
+/* ============================================================
+   §10  PARALLAX HERO LAYER (CSS BASE — JS animates transform)
+   ============================================================ */
+.hero__bg {
+  will-change: transform;
+  /* JS sets transform: translateY(xpx) on scroll */
+  transition: none; /* bypass CSS transition so JS RAF is smooth */
+}
+
+
+/* ============================================================
+   §11  IMPACT METRICS / COUNTER SECTION
+   ============================================================ */
+
+/* Wrapper that triggers the count-up */
+.counter-wrap {
+  overflow: hidden;
+}
+
+/* Rolling digit — JS animates the numeric content */
+.counter-wrap [data-count] {
+  display: inline-block;
+  animation: countUp var(--dur-md) var(--ease-out-expo) both;
+  will-change: transform, opacity;
+}
+
+/* Stat cards enter staggered */
+.stat-card {
+  transition:
+    transform  var(--dur-md) var(--ease-spring),
+    box-shadow var(--dur-md) var(--ease-out-quart);
+}
+
+.stat-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(45, 59, 85, 0.15);
+}
+
+/* Number itself scales in on hover for emphasis */
+.stat-card:hover .stat-number,
+.stat-card:hover [data-count] {
+  transform: scale(1.06);
+  transition: transform var(--dur-sm) var(--ease-spring);
+}
+
+.stat-number,
+[data-count] {
+  transition: transform var(--dur-sm) var(--ease-out-quart);
+}
+
+
+/* ============================================================
+   §12  CURSOR GLOW — radial gradient overlay
+   JS updates --mouse-x and --mouse-y on mousemove
+   ============================================================ */
+.cursor-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(245, 197, 24, 0.06) 0%,
+    rgba(245, 166, 35, 0.03) 30%,
+    transparent 70%
+  );
+  transition:
+    background 80ms linear; /* very fast to track cursor naturally */
+  will-change: background;
+}
+
+/* Disable cursor glow on touch devices */
+@media (hover: none) {
+  .cursor-glow { display: none; }
+}
+
+
+/* ============================================================
+   §13  NEWSLETTER SECTION — FORM MICRO-INTERACTIONS
+   ============================================================ */
+.newsletter__input {
+  transition:
+    border-color var(--dur-sm) var(--ease-out-quart),
+    box-shadow   var(--dur-sm) var(--ease-out-quart),
+    transform    var(--dur-sm) var(--ease-spring);
+}
+
+.newsletter__input:focus {
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 4px rgba(245, 197, 24, 0.20);
+  transform: translateY(-1px);
+}
+
+/* Success state flash */
+@keyframes successPop {
+  0%   { transform: scale(0.92); opacity: 0; }
+  60%  { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(1);    opacity: 1; }
+}
+
+.newsletter__success {
+  animation: successPop var(--dur-md) var(--ease-spring) forwards;
+}
+
+
+/* ============================================================
+   §14  VOLUNTEER SECTION — CTA CARD HOVER
+   ============================================================ */
+.volunteer-card,
+.cta-card {
+  transition:
+    transform  var(--dur-md) var(--ease-spring),
+    box-shadow var(--dur-md) var(--ease-out-quart),
+    background var(--dur-md) var(--ease-out-quart);
+}
+
+.volunteer-card:hover,
+.cta-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 56px rgba(45, 59, 85, 0.18);
+}
+
+
+/* ============================================================
+   §15  FOOTER — LINK HOVER LIFTS
+   ============================================================ */
+.footer__links a,
+.footer a {
+  transition:
+    color     var(--dur-sm) var(--ease-out-quart),
+    transform var(--dur-sm) var(--ease-spring);
+  display: inline-block;
+}
+
+.footer__links a:hover,
+.footer a:hover {
+  transform: translateX(4px);
+  color: var(--yellow);
+}
+
+/* Social icon pulse on hover */
+.social-icon {
+  transition:
+    transform  var(--dur-sm) var(--ease-spring),
+    box-shadow var(--dur-sm) var(--ease-out-quart);
+  will-change: transform;
+}
+
+.social-icon:hover {
+  transform: translateY(-4px) scale(1.12);
+  box-shadow: 0 8px 20px rgba(245, 197, 24, 0.35);
+}
+
+
+/* ============================================================
+   §16  SKELETON / LOADING STATES
+   ============================================================ */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--light-grey) 25%,
+    #e9ecf0cc 50%,
+    var(--light-grey) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s var(--ease-in-out-circ) infinite;
+  border-radius: var(--radius-sm);
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(245, 197, 24, 0.25);
+  border-top-color: var(--yellow);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+
+/* ============================================================
+   §17  SECTION DIVIDERS — ANIMATED WAVE
+   ============================================================ */
+@keyframes waveDrift {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(-25px); }
+  100% { transform: translateX(0); }
+}
+
+.section-wave svg,
+.wave-divider svg {
+  animation: waveDrift 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+
+/* ============================================================
+   §18  REDUCED MOTION — ACCESSIBILITY OVERRIDE
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Keep structural visibility — only kill motion */
+  .reveal,
+  .reveal--left,
+  .reveal--right,
+  .reveal--scale,
+  .reveal--slide-bottom,
+  .reveal-children > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero__content,
+  .hero__content .eyebrow,
+  .hero__content h1,
+  .hero__content p,
+  .hero__buttons,
+  .hero__scroll {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+
+  .btn--yellow {
+    animation: none !important;
+  }
+
+  .cursor-glow { display: none !important; }
+
+  .hero__globe,
+  .hero__floating,
+  .hero__blob,
+  .bg-blob,
+  .hero__particle,
+  .bg-shape,
+  .section-wave svg,
+  .wave-divider svg {
+    animation: none !important;
+  }
+}
+
+
+/* ============================================================
+   §19  UTILITY — PERFORMANCE HINTS
+   ============================================================ */
+
+/* Pre-promote layers that will animate */
+.navbar,
+.hero,
+.hero__bg,
+.hero__content,
+.hero__globe,
+.hero__floating {
+  /* will-change is set conservatively — only on elements that
+     actually transition. Avoid setting on every card/element as
+     it creates excessive compositing layers on mobile. */
+}
+
+/* Image optimization for cards */
+.project-card img,
+.project-card__image {
+  object-fit: cover;
+  backface-visibility: hidden;
+}

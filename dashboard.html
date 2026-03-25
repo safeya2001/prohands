@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pro Hands — Internal Dashboard</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/cropped-fav-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/cropped-fav-180x180.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <!-- ========== LOGIN SCREEN ========== -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <div class="login-card__logo">
+        <img src="images/Pro-hands-communication-kit-02.png" alt="Pro Hands Logo">
+      </div>
+      <h1>Internal Portal</h1>
+      <p class="login-card__subtitle">Authorized members only</p>
+      <form id="loginForm" autocomplete="off">
+        <div class="login-field">
+          <label for="loginUser">Username</label>
+          <input type="text" id="loginUser" placeholder="Enter username" required>
+        </div>
+        <div class="login-field">
+          <label for="loginPass">Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="loginPass" placeholder="Enter password" required>
+            <button type="button" class="toggle-pass" aria-label="Toggle password visibility">
+              <svg viewBox="0 0 24 24" width="20" height="20"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+        <p class="login-error" id="loginError" aria-live="polite"></p>
+        <button type="submit" class="btn btn--teal login-btn">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========== DASHBOARD ========== -->
+  <div class="dashboard" id="dashboard" style="display:none;">
+
+    <!-- Sidebar -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <div class="dash-sidebar__header">
+        <img src="images/Pro-hands-communication-kit-02.png" alt="Pro Hands" class="dash-sidebar__logo">
+        <span class="dash-sidebar__title">Pro Hands</span>
+      </div>
+      <nav class="dash-sidebar__nav">
+        <a href="#" class="dash-nav-item active" data-section="overview">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          Overview
+        </a>
+        <a href="#" class="dash-nav-item" data-section="volunteers">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Volunteers
+        </a>
+        <a href="#" class="dash-nav-item" data-section="newsletter">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Newsletter
+        </a>
+        <a href="#" class="dash-nav-item" data-section="projects">
+          <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          Projects
+        </a>
+        <a href="#" class="dash-nav-item" data-section="calendar">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Calendar
+        </a>
+        <a href="#" class="dash-nav-item" data-section="todos">
+          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          Tasks
+        </a>
+        <a href="#" class="dash-nav-item" data-section="announcements">
+          <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          Announcements
+        </a>
+      </nav>
+      <div class="dash-sidebar__footer">
+        <a href="index.html" class="dash-back-btn">
+          <svg viewBox="0 0 24 24"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back to Website
+        </a>
+        <button class="dash-logout-btn" id="logoutBtn">
+          <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="dash-main">
+      <!-- Top Bar -->
+      <header class="dash-topbar">
+        <button class="dash-topbar__toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+          <span></span><span></span><span></span>
+        </button>
+        <h2 class="dash-topbar__title" id="dashTitle">Overview</h2>
+        <div class="dash-topbar__right">
+          <!-- Notification Bell -->
+          <button class="dash-notif-btn" id="notifBtn" aria-label="Notifications">
+            <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="dash-notif-badge" id="notifBadge" style="display:none;">0</span>
+          </button>
+          <div class="dash-notif-dropdown" id="notifDropdown">
+            <div class="dash-notif-dropdown__header">
+              <h4>Notifications</h4>
+              <button class="dash-notif-clear" id="notifClear">Clear all</button>
+            </div>
+            <div class="dash-notif-list" id="notifList">
+              <p class="dash-notif-empty">No new notifications</p>
+            </div>
+          </div>
+          <!-- PDF Export -->
+          <button class="dash-topbar-btn" id="exportPdfBtn" title="Export PDF Report">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </button>
+          <!-- User -->
+          <div class="dash-topbar__user">
+            <div class="dash-avatar">
+              <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <span class="dash-topbar__username" id="dashUsername">Admin</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Area -->
+      <div class="dash-content">
+
+        <!-- ===== OVERVIEW ===== -->
+        <section class="dash-section active" id="sec-overview">
+          <div class="dash-stats-grid">
+            <div class="dash-stat-card dash-stat-card--teal">
+              <div class="dash-stat-card__icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <div class="dash-stat-card__info"><span class="dash-stat-card__number" id="statVolunteers">0</span><span class="dash-stat-card__label">Volunteers</span></div>
+            </div>
+            <div class="dash-stat-card dash-stat-card--coral">
+              <div class="dash-stat-card__icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+              <div class="dash-stat-card__info"><span class="dash-stat-card__number" id="statNewsletter">0</span><span class="dash-stat-card__label">Subscribers</span></div>
+            </div>
+            <div class="dash-stat-card dash-stat-card--orange">
+              <div class="dash-stat-card__icon"><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+              <div class="dash-stat-card__info"><span class="dash-stat-card__number" id="statProjects">3</span><span class="dash-stat-card__label">Active Projects</span></div>
+            </div>
+            <div class="dash-stat-card dash-stat-card--navy">
+              <div class="dash-stat-card__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <div class="dash-stat-card__info"><span class="dash-stat-card__number" id="statLastUpdate">—</span><span class="dash-stat-card__label">Last Updated</span></div>
+            </div>
+          </div>
+          <!-- Charts -->
+          <div class="dash-charts-row">
+            <div class="dash-card dash-card--half">
+              <div class="dash-card__header"><h3>Monthly Growth</h3></div>
+              <div class="dash-chart"><canvas id="monthlyCanvas" height="220"></canvas></div>
+            </div>
+            <div class="dash-card dash-card--half">
+              <div class="dash-card__header"><h3>Volunteer Roles</h3></div>
+              <div class="dash-chart-pie-wrap"><canvas id="roleCanvas" width="200" height="200"></canvas><div class="dash-chart-legend" id="roleLegend"></div></div>
+            </div>
+          </div>
+          <!-- Recent Tables -->
+          <div class="dash-card">
+            <div class="dash-card__header"><h3>Recent Volunteer Applications</h3><a href="#" class="dash-link" data-goto="volunteers">View All →</a></div>
+            <div class="dash-table-wrap"><table class="dash-table"><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Date</th></tr></thead><tbody id="recentVolunteers"><tr><td colspan="4" class="dash-table__empty">No data yet</td></tr></tbody></table></div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card__header"><h3>Recent Newsletter Subscribers</h3><a href="#" class="dash-link" data-goto="newsletter">View All →</a></div>
+            <div class="dash-table-wrap"><table class="dash-table"><thead><tr><th>Email</th><th>Date</th></tr></thead><tbody id="recentNewsletter"><tr><td colspan="2" class="dash-table__empty">No data yet</td></tr></tbody></table></div>
+          </div>
+        </section>
+
+        <!-- ===== VOLUNTEERS ===== -->
+        <section class="dash-section" id="sec-volunteers">
+          <div class="dash-card">
+            <div class="dash-card__header">
+              <h3>All Volunteer Applications</h3>
+              <div class="dash-card__actions">
+                <input type="text" class="dash-search" id="searchVolunteers" placeholder="Search...">
+                <button class="btn btn--teal btn--sm" id="refreshVolunteers">↻ Refresh</button>
+                <button class="btn btn--navy btn--sm" id="exportVolunteers">⬇ CSV</button>
+              </div>
+            </div>
+            <div class="dash-table-wrap">
+              <table class="dash-table" id="volunteersTable">
+                <thead><tr><th>#</th><th>Name</th><th>Email</th><th>Phone</th><th>Role</th><th>Message</th><th>Date</th><th>Actions</th></tr></thead>
+                <tbody id="allVolunteers"><tr><td colspan="8" class="dash-table__empty">Loading...</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== NEWSLETTER ===== -->
+        <section class="dash-section" id="sec-newsletter">
+          <div class="dash-card">
+            <div class="dash-card__header">
+              <h3>All Newsletter Subscribers</h3>
+              <div class="dash-card__actions">
+                <input type="text" class="dash-search" id="searchNewsletter" placeholder="Search...">
+                <button class="btn btn--teal btn--sm" id="refreshNewsletter">↻ Refresh</button>
+                <button class="btn btn--navy btn--sm" id="exportNewsletter">⬇ CSV</button>
+              </div>
+            </div>
+            <div class="dash-table-wrap">
+              <table class="dash-table" id="newsletterTable">
+                <thead><tr><th>#</th><th>Email</th><th>Date</th></tr></thead>
+                <tbody id="allNewsletter"><tr><td colspan="3" class="dash-table__empty">Loading...</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== PROJECTS ===== -->
+        <section class="dash-section" id="sec-projects">
+          <div class="dash-card">
+            <div class="dash-card__header"><h3>Project Management</h3><button class="btn btn--teal btn--sm" id="addProjectBtn">+ Add Project</button></div>
+            <div class="dash-projects-grid" id="projectsGrid">
+              <div class="dash-project-card"><div class="dash-project-card__header dash-project-card__header--teal"><h4>Puppet Show</h4><span class="dash-badge dash-badge--active">Active</span></div><div class="dash-project-card__body"><div class="dash-project-meta"><span>Category: <strong>Community</strong></span></div></div><div class="dash-project-card__footer"><a href="projects/puppet.html" target="_blank" class="dash-link">View Page →</a></div></div>
+              <div class="dash-project-card"><div class="dash-project-card__header dash-project-card__header--coral"><h4>Stand-Up Comedy</h4><span class="dash-badge dash-badge--active">Active</span></div><div class="dash-project-card__body"><div class="dash-project-meta"><span>Category: <strong>Education</strong></span></div></div><div class="dash-project-card__footer"><a href="projects/standup.html" target="_blank" class="dash-link">View Page →</a></div></div>
+              <div class="dash-project-card"><div class="dash-project-card__header dash-project-card__header--navy"><h4>Green Transportation</h4><span class="dash-badge dash-badge--active">Active</span></div><div class="dash-project-card__body"><div class="dash-project-meta"><span>Category: <strong>Environment</strong></span></div></div><div class="dash-project-card__footer"><a href="projects/transportation.html" target="_blank" class="dash-link">View Page →</a></div></div>
+            </div>
+          </div>
+          <div class="dash-modal" id="addProjectModal"><div class="dash-modal__content"><div class="dash-modal__header"><h3>Add New Project</h3><button class="dash-modal__close" id="closeProjectModal">&times;</button></div><form id="addProjectForm"><div class="dash-form-row"><div class="dash-form-group"><label>Project Name</label><input type="text" name="projectName" required></div><div class="dash-form-group"><label>Category</label><select name="projectCategory"><option value="Environment">Environment</option><option value="Community">Community</option><option value="Education">Education</option></select></div></div><div class="dash-form-row"><div class="dash-form-group"><label>Target</label><input type="text" name="projectTarget" placeholder="e.g. 500 citizens"></div><div class="dash-form-group"><label>Status</label><select name="projectStatus"><option value="Active">Active</option><option value="Planning">Planning</option><option value="Completed">Completed</option></select></div></div><div class="dash-form-group"><label>Description</label><textarea name="projectDesc" rows="3" placeholder="Brief description..."></textarea></div><button type="submit" class="btn btn--teal">Add Project</button></form></div></div>
+        </section>
+
+        <!-- ===== CALENDAR ===== -->
+        <section class="dash-section" id="sec-calendar">
+          <div class="dash-card">
+            <div class="dash-card__header">
+              <h3>Events Calendar</h3>
+              <div class="dash-card__actions">
+                <button class="btn btn--sm btn--navy" id="calPrev">◀</button>
+                <span class="dash-cal-month" id="calMonth"></span>
+                <button class="btn btn--sm btn--navy" id="calNext">▶</button>
+                <button class="btn btn--teal btn--sm" id="addEventBtn">+ Event</button>
+              </div>
+            </div>
+            <div class="dash-calendar" id="calendarGrid"></div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card__header"><h3>Upcoming Events</h3></div>
+            <div class="dash-events-list" id="eventsList"><p class="dash-table__empty">No upcoming events</p></div>
+          </div>
+          <div class="dash-modal" id="addEventModal"><div class="dash-modal__content"><div class="dash-modal__header"><h3>Add Event</h3><button class="dash-modal__close" id="closeEventModal">&times;</button></div><form id="addEventForm"><div class="dash-form-group"><label>Event Title</label><input type="text" name="eventTitle" required></div><div class="dash-form-row"><div class="dash-form-group"><label>Date</label><input type="date" name="eventDate" required></div><div class="dash-form-group"><label>Time</label><input type="time" name="eventTime"></div></div><div class="dash-form-group"><label>Description</label><textarea name="eventDesc" rows="2" placeholder="Event details..."></textarea></div><button type="submit" class="btn btn--teal">Add Event</button></form></div></div>
+        </section>
+
+        <!-- ===== TASKS ===== -->
+        <section class="dash-section" id="sec-todos">
+          <div class="dash-card">
+            <div class="dash-card__header"><h3>Team Tasks</h3><span class="dash-task-counter" id="taskCounter">0 / 0</span></div>
+            <form class="dash-todo-add" id="todoAddForm">
+              <input type="text" id="todoInput" placeholder="Add a new task..." required>
+              <select id="todoPriority"><option value="normal">Normal</option><option value="high">High</option><option value="urgent">Urgent</option></select>
+              <button type="submit" class="btn btn--teal btn--sm">+ Add</button>
+            </form>
+            <div class="dash-todo-filters">
+              <button class="dash-filter-btn active" data-filter="all">All</button>
+              <button class="dash-filter-btn" data-filter="active">Active</button>
+              <button class="dash-filter-btn" data-filter="completed">Completed</button>
+            </div>
+            <ul class="dash-todo-list" id="todoList"></ul>
+          </div>
+        </section>
+
+        <!-- ===== ANNOUNCEMENTS ===== -->
+        <section class="dash-section" id="sec-announcements">
+          <div class="dash-card">
+            <div class="dash-card__header"><h3>Internal Announcements</h3><button class="btn btn--teal btn--sm" id="addAnnouncementBtn">+ New Post</button></div>
+            <div class="dash-announcements" id="announcementsList"></div>
+          </div>
+          <div class="dash-modal" id="addAnnouncementModal"><div class="dash-modal__content"><div class="dash-modal__header"><h3>New Announcement</h3><button class="dash-modal__close" id="closeAnnouncementModal">&times;</button></div><form id="addAnnouncementForm"><div class="dash-form-group"><label>Title</label><input type="text" name="annTitle" required></div><div class="dash-form-group"><label>Category</label><select name="annCategory"><option value="General">General</option><option value="Urgent">Urgent</option><option value="Event">Event</option><option value="Update">Update</option></select></div><div class="dash-form-group"><label>Message</label><textarea name="annMessage" rows="4" placeholder="Write your announcement..." required></textarea></div><button type="submit" class="btn btn--teal">Post Announcement</button></form></div></div>
+        </section>
+
+        <!-- ===== VOLUNTEER DETAIL MODAL ===== -->
+        <div class="dash-modal" id="volunteerDetailModal">
+          <div class="dash-modal__content dash-modal__content--wide">
+            <div class="dash-modal__header"><h3 id="volDetailName">Volunteer Details</h3><button class="dash-modal__close" id="closeVolDetail">&times;</button></div>
+            <div class="dash-vol-detail" id="volDetailBody"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
