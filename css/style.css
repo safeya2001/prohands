@@ -306,9 +306,7 @@ p  { margin-bottom: 1rem; }
 .hero__bg {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url('../images/aerial-view-of-green-forests-and-blue-lakes-and-ri-T3L66K7a-1.jpg') center / cover no-repeat;
 }
 .hero__bg::after {
   content: '';

@@ -554,4 +554,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // Expose feature flags on window for other scripts (e.g., conditional init)
   window.proHandsFeatures = features;
 
+  /* ----------------------------------------------------------
+     §12  PAGE LOADER & SCROLL PROGRESS
+  ---------------------------------------------------------- */
+  // Hide loader when page fully loads
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('pageLoader');
+    if (loader) {
+      loader.classList.add('hidden');
+      setTimeout(() => loader.remove(), 600); // Remove from DOM after fade out
+    }
+  });
+
+  // Update scroll progress bar
+  const progressBar = document.getElementById('scrollProgress');
+  if (progressBar) {
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (scrollTop / scrollHeight) * 100;
+      progressBar.style.width = scrolled + '%';
+    }, { passive: true });
+  }
+
 }); // end DOMContentLoaded

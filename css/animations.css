@@ -817,7 +817,7 @@ body {
   transition:
     color     var(--dur-sm) var(--ease-out-quart),
     transform var(--dur-sm) var(--ease-spring);
-  display: inline-block;
+  
 }
 
 .footer__links a:hover,
