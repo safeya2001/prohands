@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="images/cropped-fav-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/cropped-fav-180x180.png">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/enhanced-3d.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -41,10 +42,19 @@
   <main id="main-content">
 
   <!-- ========== PAGE HERO ========== -->
-  <section class="page-hero page-hero--bg" style="background-image:url('images/aerial-view-of-green-forests-and-blue-lakes-and-ri-T3L66K7a-1.jpg')">
-    <div class="page-hero__content">
+  <section class="page-hero page-hero--about page-hero--bg" style="position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 50vh;">
+    <!-- 3D Parallax Background -->
+    <div class="hero-3d-bg" style="background-image:url('images/aerial-view-of-green-forests-and-blue-lakes-and-ri-T3L66K7a-1.jpg'); position: absolute; inset: -5%; background-size: cover; background-position: center; z-index: 0; filter: brightness(0.7); animation: slowZoom 20s infinite alternate;"></div>
+    
+    <div class="container relative z-10" style="perspective: 1000px;">
+      <div class="hero-glass-pill reveal" style="padding: 4rem; text-align: center; border-radius: var(--radius-lg); background: rgba(20, 30, 48, 0.4); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 30px 60px rgba(0,0,0,0.3); transform: rotateX(5deg) translateY(-20px); transform-style: preserve-3d; transition: transform 0.8s ease;">
+        
+    <div class="page-hero__content" style="transform: translateZ(50px);">
       <h1 data-ar="مشاريعنا">Our Projects</h1>
       <p data-ar="مقاربات إبداعية للتعليم البيئي وتمكين المجتمع.">Creative approaches to environmental education and community empowerment.</p>
+    </div>
+  
+      </div>
     </div>
   </section>
 
@@ -59,11 +69,11 @@
         <button class="filter-tab" data-filter="upcoming" role="tab" aria-selected="false" data-ar="قادمة">Upcoming</button>
       </div>
 
-      <div class="projects-grid">
+      <div class="projects-grid" style="perspective: 1200px;">
         <!-- Puppet Training -->
-        <div class="project-card reveal" data-category="active">
+        <div class="project-card glass-panel-light reveal" data-category="active">
           <div class="project-card__icon">
-            <img src="images/manipulation.png" alt="Puppet Training">
+            <img src="images/manipulation.png" class="img-3d-float" alt="Puppet Training">
           </div>
           <h3 data-ar="تدريب الدمى لعقول مستدامة">Puppet Training for Sustainable Minds</h3>
           <p data-ar="إلهام الشباب الذين تتراوح أعمارهم بين 10 و 25 عاماً حول القضايا البيئية من خلال عروض الدمى والمسرح وورش العمل.">Inspiring youth ages 10–25 about environmental issues through engaging puppet shows, theatre, and workshops.</p>
@@ -71,9 +81,9 @@
         </div>
 
         <!-- Standup Comedy -->
-        <div class="project-card reveal reveal-delay-1" data-category="completed">
+        <div class="project-card glass-panel-light reveal reveal-delay-1" data-category="completed">
           <div class="project-card__icon">
-            <img src="images/stand-up-comedy.png" alt="Standup Comedy">
+            <img src="images/stand-up-comedy.png" class="img-3d-float" alt="Standup Comedy">
           </div>
           <h3 data-ar="الكوميديا الارتجالية للتوعية البيئية">Standup Comedy for Environmental Awareness</h3>
           <p data-ar="استخدام الفكاهة وشخصية الدمية المحبوبة مدام فدا لتعزيز الحفاظ على البيئة.">Using humor and the beloved puppet character Madam Fida to promote environmental conservation.</p>
@@ -81,9 +91,9 @@
         </div>
 
         <!-- Alternative Transportation -->
-        <div class="project-card reveal reveal-delay-2" data-category="upcoming">
+        <div class="project-card glass-panel-light reveal reveal-delay-2" data-category="upcoming">
           <div class="project-card__icon">
-            <img src="images/bike.png" alt="Alternative Transportation">
+            <img src="images/bike.png" class="img-3d-float" alt="Alternative Transportation">
           </div>
           <h3 data-ar="مشروع قادم: حلول النقل البديل">Upcoming Project: Alternative Transportation Solutions</h3>
           <p data-ar="تعزيز خيارات النقل الصديقة للبيئة — الدراجات والمشي والنقل العام في عمّان.">Promoting eco-friendly transportation options — cycling, walking, and public transit in Amman.</p>
@@ -94,17 +104,22 @@
   </section>
 
   <!-- ========== CTA ========== -->
-  <section class="cta-banner">
-    <div class="cta-banner__bg" style="background-image:url('images/aerial-view-of-green-forests-and-blue-lakes-and-ri-T3L66K7a-1.jpg')"></div>
-    <div class="cta-banner__content container reveal">
-      <h2 data-ar="انضم إلينا الآن!">Join Us Now!</h2>
-      <p data-ar="كن جزءاً من عائلتنا المتنامية من المتطوعين لحماية كوكبنا.">Become One Of Our Growing Family Of Volunteers To Protect Our Planet.</p>
-      <form class="cta-banner__form">
-        <input type="email" name="email" placeholder="Enter your email address" required aria-label="Email address" data-placeholder-ar="أدخل بريدك الإلكتروني">
-        <button type="submit" class="btn btn--yellow" data-ar="اشترك">Subscribe</button>
-      </form>
-    </div>
-  </section>
+    <section class="section cta-3d-wrapper relative">
+      <div class="container reveal">
+        <div class="cta-glass-card">
+          <div class="cta-glass-card__bg" style="background-image:url('images/aerial-view-of-green-forests-and-blue-lakes-and-ri-T3L66K7a-1.jpg')"></div>
+          <div class="cta-glass-card__overlay"></div>
+          <div class="cta-glass-content relative z-10 text-center">
+            <h2 data-ar="انضم إلينا الآن!" class="cta-3d-title">Join Us Now!</h2>
+            <p data-ar="كن جزءاً من عائلتنا المتنامية من المتطوعين لحماية كوكبنا." class="cta-3d-text">Become One Of Our Growing Family Of Volunteers To Protect Our Planet.</p>
+            <form class="cta-glass-card__form">
+              <input type="email" name="email" placeholder="Enter your email address" required aria-label="Email address" data-placeholder-ar="أدخل بريدك الإلكتروني" class="glass-input">
+              <button type="submit" class="btn btn--cta-3d" data-ar="اشترك">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </main>
 

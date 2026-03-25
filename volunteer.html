@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="images/cropped-fav-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/cropped-fav-180x180.png">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/enhanced-3d.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -41,10 +42,19 @@
   <main id="main-content">
 
   <!-- ========== PAGE HERO ========== -->
-  <section class="page-hero page-hero--bg" style="background-image:url('images/aerial-view-of-green-forest-with-tall-pine-trees-a-DTG8JWQ-1.jpg')">
-    <div class="page-hero__content">
+  <section class="page-hero page-hero--about page-hero--bg" style="position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 50vh;">
+    <!-- 3D Parallax Background -->
+    <div class="hero-3d-bg" style="background-image:url('images/aerial-view-of-green-forest-with-tall-pine-trees-a-DTG8JWQ-1.jpg'); position: absolute; inset: -5%; background-size: cover; background-position: center; z-index: 0; filter: brightness(0.7); animation: slowZoom 20s infinite alternate;"></div>
+    
+    <div class="container relative z-10" style="perspective: 1000px;">
+      <div class="hero-glass-pill reveal" style="padding: 4rem; text-align: center; border-radius: var(--radius-lg); background: rgba(20, 30, 48, 0.4); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 30px 60px rgba(0,0,0,0.3); transform: rotateX(5deg) translateY(-20px); transform-style: preserve-3d; transition: transform 0.8s ease;">
+        
+    <div class="page-hero__content" style="transform: translateZ(50px);">
       <h1 data-ar="كن يداً مهنية. أحدث أثراً حقيقياً.">Be A Pro Hand. Make A Real Impact.</h1>
       <p data-ar="انضم إلى عائلتنا المتنامية من المتطوعين وساعد في حماية كوكبنا من خلال التعليم والإبداع.">Join our growing family of volunteers and help protect our planet through education and creativity.</p>
+    </div>
+  
+      </div>
     </div>
   </section>
 
@@ -57,7 +67,7 @@
         <p data-ar="اختر الدور الذي يناسب مهاراتك وشغفك.">Choose the role that best fits your skills and passion.</p>
       </div>
       <div class="roles-grid">
-        <div class="role-card reveal">
+        <div class="role-card glass-panel-light reveal">
           <div class="role-card__icon">
             <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           </div>
@@ -65,7 +75,7 @@
           <p style="font-size:.85rem; color:var(--text-muted); margin-bottom:12px;" data-ar="ساعد في إنشاء وتقديم عروض الدمى التي تعلم الأطفال عن الاستدامة والقضايا البيئية.">Help create and perform puppet shows that teach children about sustainability and environmental issues.</p>
           <a href="#apply" class="btn btn--yellow btn--sm" data-ar="قدم الآن">Apply Now</a>
         </div>
-        <div class="role-card reveal reveal-delay-1">
+        <div class="role-card glass-panel-light reveal reveal-delay-1">
           <div class="role-card__icon">
             <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
           </div>
@@ -73,7 +83,7 @@
           <p style="font-size:.85rem; color:var(--text-muted); margin-bottom:12px;" data-ar="قيادة ورش عمل تعليمية حول الاستدامة والممارسات الصديقة للبيئة والحياة الخضراء للشباب والمجتمعات.">Lead educational workshops on sustainability, eco-friendly practices, and green living for youth and communities.</p>
           <a href="#apply" class="btn btn--yellow btn--sm" data-ar="قدم الآن">Apply Now</a>
         </div>
-        <div class="role-card reveal reveal-delay-2">
+        <div class="role-card glass-panel-light reveal reveal-delay-2">
           <div class="role-card__icon">
             <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           </div>
@@ -81,7 +91,7 @@
           <p style="font-size:.85rem; color:var(--text-muted); margin-bottom:12px;" data-ar="تخطيط وتنسيق الفعاليات المجتمعية والعروض وأنشطة التوعية في جميع أنحاء الأردن.">Plan and coordinate community events, performances, and outreach activities across Jordan.</p>
           <a href="#apply" class="btn btn--yellow btn--sm" data-ar="قدم الآن">Apply Now</a>
         </div>
-        <div class="role-card reveal reveal-delay-3">
+        <div class="role-card glass-panel-light reveal reveal-delay-3">
           <div class="role-card__icon">
             <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </div>
@@ -101,20 +111,20 @@
         <h2 data-ar="طلب تطوع">Volunteer Application</h2>
         <p data-ar="املأ النموذج أدناه وسنتواصل معك في أقرب وقت ممكن.">Fill out the form below and we'll get back to you as soon as possible.</p>
       </div>
-      <form class="volunteer-form reveal" id="volunteer-form">
-        <div class="form-group">
+      <form class="volunteer-form glass-panel-light reveal" id="volunteer-form" style="border:1px solid rgba(0,0,0,0.1); transform-style: preserve-3d;">
+        <div class="form-group" style="transform: translateZ(20px);">
           <label for="v-name" data-ar="الاسم الكامل">Full Name</label>
           <input type="text" id="v-name" name="name" placeholder="Enter your full name" required data-placeholder-ar="أدخل اسمك الكامل">
         </div>
-        <div class="form-group">
+        <div class="form-group" style="transform: translateZ(20px);">
           <label for="v-email" data-ar="البريد الإلكتروني">Email Address</label>
           <input type="email" id="v-email" name="email" placeholder="Enter your email" required data-placeholder-ar="أدخل بريدك الإلكتروني">
         </div>
-        <div class="form-group">
+        <div class="form-group" style="transform: translateZ(20px);">
           <label for="v-phone" data-ar="رقم الهاتف">Phone Number</label>
           <input type="tel" id="v-phone" name="phone" placeholder="+962 7XXXX XXXX" data-placeholder-ar="+962 7XXXX XXXX">
         </div>
-        <div class="form-group">
+        <div class="form-group" style="transform: translateZ(20px);">
           <label for="v-role" data-ar="الدور المطلوب">Role of Interest</label>
           <select id="v-role" name="role" required>
             <option value="" disabled selected data-ar="اختر دوراً">Select a role</option>
@@ -124,7 +134,7 @@
             <option value="social" data-ar="صانع محتوى تواصل اجتماعي">Social media content creator</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="form-group" style="transform: translateZ(20px);">
           <label for="v-message" data-ar="الرسالة">Message</label>
           <textarea id="v-message" name="message" placeholder="Tell us about yourself and why you'd like to volunteer..." data-placeholder-ar="أخبرنا عن نفسك ولماذا ترغب في التطوع..."></textarea>
         </div>
