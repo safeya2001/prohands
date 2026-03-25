@@ -6,7 +6,7 @@
   <meta name="description" content="Pro Hands empowers Jordanian communities through creative education, puppetry, theatre, and hands-on environmental workshops to build a sustainable future.">
   <meta property="og:title" content="Pro Hands — Empowering Communities for a Sustainable Future">
   <meta property="og:description" content="Pro Hands blends creativity, education, and environmental stewardship to build a sustainable future in Jordan.">
-  <meta property="og:image" content="/images/Pro-hands-communication-kit-02.png">
+  <meta property="og:image" content="images/Pro-hands-communication-kit-02.png">
   <meta property="og:url" content="https://pro-hands.org/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -16,9 +16,9 @@
   <title>Pro Hands — Empowering Communities for a Sustainable Future</title>
 
   <!-- Favicons -->
-  <link rel="icon" href="/images/cropped-fav-32x32.png" sizes="32x32">
-  <link rel="icon" href="/images/cropped-fav-192x192.png" sizes="192x192">
-  <link rel="apple-touch-icon" href="/images/cropped-fav-180x180.png">
+  <link rel="icon" href="images/cropped-fav-32x32.png" sizes="32x32">
+  <link rel="icon" href="images/cropped-fav-192x192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="images/cropped-fav-180x180.png">
 
   <!-- Google Fonts: Outfit + Lato -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,10 +28,14 @@
   <!-- AOS (Animate On Scroll) -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
+  <!-- Three.js r158 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+
   <!-- Site Stylesheets -->
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/visual-3d.css">
-  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/visual-3d.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/enhanced-3d.css">
 
   <!-- Inline critical layout helpers (hero grid, sr-only, responsive overrides) -->
   <style>
@@ -109,7 +113,7 @@
         <!-- Logo -->
         <a href="/" class="navbar__logo" aria-label="Pro Hands — return to homepage">
           <img
-            src="/images/Pro-hands-communication-kit-02.png"
+            src="images/Pro-hands-communication-kit-02.png"
             alt="Pro Hands"
             width="220"
             height="60"
@@ -184,7 +188,7 @@
       aria-labelledby="heroHeading"
     >
       <!-- Decorative background overlay (CSS gradient applied via class) -->
-      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__bg parallax-layer" aria-hidden="true"></div>
 
       <!-- Floating ambient particles -->
       <span class="particle particle--1" aria-hidden="true"></span>
@@ -193,6 +197,74 @@
       <span class="particle particle--4" aria-hidden="true"></span>
       <span class="particle particle--5" aria-hidden="true"></span>
       <span class="particle particle--6" aria-hidden="true"></span>
+
+      <!-- Floating background theater/nature elements -->
+      <div class="bg-floaters" aria-hidden="true">
+        <!-- Theater comedy mask -->
+        <div class="bg-floater bg-floater--mask-comedy">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="40" cy="38" rx="28" ry="26" stroke="currentColor" stroke-width="2.5" fill="none" opacity="0.6"/>
+            <path d="M28 32 Q33 28 38 32" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M42 32 Q47 28 52 32" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M28 46 Q40 56 52 46" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <path d="M22 20 Q18 12 14 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M58 20 Q62 12 66 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <!-- Theater tragedy mask -->
+        <div class="bg-floater bg-floater--mask-tragedy">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="40" cy="38" rx="26" ry="25" stroke="currentColor" stroke-width="2.5" fill="none" opacity="0.5"/>
+            <path d="M28 30 Q33 35 38 30" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M42 30 Q47 35 52 30" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M29 50 Q40 42 51 50" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <!-- Leaf 1 -->
+        <div class="bg-floater bg-floater--leaf-1">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 55 C10 40 5 15 30 5 C55 15 50 40 30 55Z" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.3"/>
+            <line x1="30" y1="55" x2="30" y2="5" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+          </svg>
+        </div>
+        <!-- Leaf 2 -->
+        <div class="bg-floater bg-floater--leaf-2">
+          <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25 46 C8 34 4 12 25 4 C46 12 42 34 25 46Z" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.25"/>
+            <line x1="25" y1="46" x2="25" y2="4" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+          </svg>
+        </div>
+        <!-- Puppet silhouette -->
+        <div class="bg-floater bg-floater--puppet">
+          <svg viewBox="0 0 60 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+            <line x1="30" y1="22" x2="30" y2="50" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="15" y1="32" x2="45" y2="32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="30" y1="50" x2="18" y2="70" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="30" y1="50" x2="42" y2="70" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="15" y1="32" x2="8"  y2="50" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="45" y1="32" x2="52" y2="50" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <!-- Geometric cube -->
+        <div class="bg-floater bg-floater--cube">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="30,5 55,18 55,45 30,58 5,45 5,18" stroke="currentColor" stroke-width="2" fill="none"/>
+            <line x1="30" y1="5"  x2="30" y2="32" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            <line x1="5"  y1="18" x2="30" y2="32" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            <line x1="55" y1="18" x2="30" y2="32" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+          </svg>
+        </div>
+        <!-- Star/sparkle -->
+        <div class="bg-floater bg-floater--star">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="20" y1="2"  x2="20" y2="38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="2"  y1="20" x2="38" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="6"  y1="6"  x2="34" y2="34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+            <line x1="34" y1="6"  x2="6"  y2="34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+          </svg>
+        </div>
+      </div><!-- /.bg-floaters -->
 
       <div class="container">
         <div class="hero__layout">
@@ -220,7 +292,7 @@
             </div>
           </div>
 
-          <!-- Right: 3D globe visual -->
+          <!-- Right: 3D globe visual (Three.js WebGL) -->
           <div
             class="hero__visual"
             data-aos="fade-left"
@@ -228,16 +300,25 @@
             data-aos-delay="250"
             aria-hidden="true"
           >
-            <div
-              class="globe-3d"
-              role="img"
-              aria-label="Decorative 3D globe representing global environmental awareness"
-            >
-              <div class="globe-3d__inner">
-                <div class="globe-3d__ring globe-3d__ring--1"></div>
-                <div class="globe-3d__ring globe-3d__ring--2"></div>
-                <div class="globe-3d__ring globe-3d__ring--3"></div>
-                <div class="globe-3d__core"></div>
+            <div class="globe-3d-container">
+              <!-- Three.js canvas — shown when WebGL available -->
+              <canvas
+                id="globeCanvas"
+                style="opacity:0;transition:opacity 0.8s ease;display:block;border-radius:50%;"
+                aria-hidden="true"
+              ></canvas>
+              <!-- Pure-CSS fallback — hidden once Three.js loads -->
+              <div
+                class="globe-3d globe-3d--fallback"
+                role="img"
+                aria-label="Decorative 3D globe representing global environmental awareness"
+              >
+                <div class="globe-3d__inner">
+                  <div class="globe-3d__ring globe-3d__ring--1"></div>
+                  <div class="globe-3d__ring globe-3d__ring--2"></div>
+                  <div class="globe-3d__ring globe-3d__ring--3"></div>
+                  <div class="globe-3d__core"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -299,22 +380,15 @@
             data-aos-delay="100"
             data-aos-duration="600"
           >
-            <div class="mvv-card__icon" aria-hidden="true">
-              <!-- Lightbulb / torch icon -->
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <line x1="9" y1="18" x2="15" y2="18"/>
-                <line x1="10" y1="22" x2="14" y2="22"/>
-                <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/>
-              </svg>
+            <div class="mvv-card__icon icon-3d icon-3d--mission" aria-hidden="true">
+              <div class="icon-3d__wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <line x1="9" y1="18" x2="15" y2="18"/>
+                  <line x1="10" y1="22" x2="14" y2="22"/>
+                  <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/>
+                </svg>
+              </div>
+              <div class="icon-3d__glow"></div>
             </div>
             <h3>Mission</h3>
             <p>Educating communities through creative mediums like puppetry and theatre for environmental awareness.</p>
@@ -335,21 +409,14 @@
             data-aos-delay="200"
             data-aos-duration="600"
           >
-            <div class="mvv-card__icon" aria-hidden="true">
-              <!-- Eye / horizon icon -->
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                <circle cx="12" cy="12" r="3"/>
-              </svg>
+            <div class="mvv-card__icon icon-3d icon-3d--vision" aria-hidden="true">
+              <div class="icon-3d__wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </div>
+              <div class="icon-3d__glow"></div>
             </div>
             <h3>Vision</h3>
             <p>A sustainable Jordan led by its own communities, inspiring environmental stewardship and responsibility.</p>
@@ -370,20 +437,13 @@
             data-aos-delay="300"
             data-aos-duration="600"
           >
-            <div class="mvv-card__icon" aria-hidden="true">
-              <!-- Heart / leaf icon -->
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-              </svg>
+            <div class="mvv-card__icon icon-3d icon-3d--values" aria-hidden="true">
+              <div class="icon-3d__wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </div>
+              <div class="icon-3d__glow"></div>
             </div>
             <h3>Values</h3>
             <p>Inclusivity, creativity, sustainability and community engagement — fostering long-term impact.</p>
@@ -414,13 +474,13 @@
 
           <!-- Left column: image with stat counter overlay -->
           <div
-            class="split__image reveal"
+            class="split__image reveal parallax-layer"
             data-aos="fade-right"
             data-aos-duration="700"
             data-aos-delay="100"
           >
             <img
-              src="/images/group-of-environmental-conservation-people-hands-p-PXQ49EB-1.jpg"
+              src="images/group-of-environmental-conservation-people-hands-p-PXQ49EB-1.jpg"
               alt="Group of environmental conservation volunteers joining hands in a circle, symbolising community action"
               width="600"
               height="600"
@@ -505,7 +565,7 @@
           >
             <div class="project-card__icon">
               <img
-                src="/images/manipulation.png"
+                src="images/manipulation.png"
                 alt="Puppet hand manipulation illustration"
                 width="80"
                 height="80"
@@ -533,7 +593,7 @@
           >
             <div class="project-card__icon">
               <img
-                src="/images/stand-up-comedy.png"
+                src="images/stand-up-comedy.png"
                 alt="Stand-up comedy microphone illustration"
                 width="80"
                 height="80"
@@ -561,7 +621,7 @@
           >
             <div class="project-card__icon">
               <img
-                src="/images/bike.png"
+                src="images/bike.png"
                 alt="Bicycle illustration representing alternative transportation"
                 width="80"
                 height="80"
@@ -931,7 +991,7 @@
           <div class="footer__logo">
             <a href="/" aria-label="Pro Hands — return to homepage">
               <img
-                src="/images/Pro-hands-communication-kit-02.png"
+                src="images/Pro-hands-communication-kit-02.png"
                 alt="Pro Hands"
                 width="160"
                 height="44"
@@ -1050,7 +1110,10 @@
   </script>
 
   <!-- Site animations & interactions -->
-  <script src="/js/animations.js"></script>
+  <script src="js/animations.js"></script>
+
+  <!-- Three.js interactive globe -->
+  <script src="js/globe.js"></script>
 
 </body>
 </html>

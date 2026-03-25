@@ -214,26 +214,53 @@ document.addEventListener('DOMContentLoaded', () => {
      speed to create depth. Uses requestAnimationFrame to batch
      DOM writes and avoid layout thrash.
   ---------------------------------------------------------- */
-  const heroBg = document.querySelector('.hero__bg');
+  const heroBg     = document.querySelector('.hero__bg');
+  const aboutImg   = document.querySelector('.split__image');
+  const bgFloaters = document.querySelector('.bg-floaters');
+  const heroSection = document.querySelector('#hero');
 
-  if (heroBg) {
-    const PARALLAX_RATIO = 0.38; // background moves at 38% of scroll speed
-    let   lastScrollY    = window.scrollY;
-    let   ticking        = false;
+  if (heroBg || aboutImg || bgFloaters) {
+    const ROOT = document.documentElement;
+    let ticking = false;
 
     function updateParallax() {
-      const offset = window.scrollY * PARALLAX_RATIO;
-      heroBg.style.transform = `translateY(${offset.toFixed(1)}px)`;
+      const sy = window.scrollY;
+
+      // Hero background: moves at 38% scroll speed
+      if (heroBg) {
+        const offset = sy * 0.38;
+        heroBg.style.transform = `translateY(${offset.toFixed(1)}px)`;
+        ROOT.style.setProperty('--hero-parallax', `${(sy * 0.25).toFixed(1)}px`);
+      }
+
+      // Background floaters: subtle upward drift
+      if (bgFloaters) {
+        ROOT.style.setProperty('--parallax-offset', `-${(sy * 0.08).toFixed(1)}px`);
+      }
+
+      // About section image: parallax when section is near viewport
+      if (aboutImg) {
+        const rect = aboutImg.getBoundingClientRect();
+        const viewH = window.innerHeight;
+        if (rect.top < viewH && rect.bottom > 0) {
+          const progress = (viewH - rect.top) / (viewH + rect.height);
+          const offset = (progress - 0.5) * 60; // ±30px range
+          ROOT.style.setProperty('--about-parallax', `${offset.toFixed(1)}px`);
+        }
+      }
+
       ticking = false;
     }
 
     window.addEventListener('scroll', () => {
-      lastScrollY = window.scrollY;
       if (!ticking) {
         requestAnimationFrame(updateParallax);
         ticking = true;
       }
     }, { passive: true });
+
+    // Run once on load to set initial state
+    updateParallax();
   }
 
 

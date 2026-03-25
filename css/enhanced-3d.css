@@ -1,0 +1,531 @@
+/* ================================================================
+   PRO HANDS — Enhanced 3D & Animation Layer
+   enhanced-3d.css  |  Loads after visual-3d.css + animations.css
+   ================================================================ */
+
+
+/* ----------------------------------------------------------------
+   1. THREE.JS GLOBE CONTAINER
+   ---------------------------------------------------------------- */
+.globe-3d-container {
+  position: relative;
+  width:  100%;
+  max-width: 420px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.globe-3d-container canvas {
+  width:  100% !important;
+  height: 100% !important;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 40px rgba(61,191,184,0.35))
+          drop-shadow(0 0 80px rgba(45,59,85,0.4));
+}
+
+/* CSS fallback sits on top until hidden by JS */
+.globe-3d--fallback {
+  position: absolute;
+  inset: 0;
+  width:  100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .globe-3d-container { max-width: 260px; }
+}
+@media (max-width: 480px) {
+  .globe-3d-container { max-width: 200px; }
+}
+
+
+/* ----------------------------------------------------------------
+   2. FLOATING BACKGROUND THEATER / NATURE ELEMENTS
+   ---------------------------------------------------------------- */
+.bg-floaters {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bg-floater {
+  position: absolute;
+  opacity: 0;             /* animated in below */
+  will-change: transform;
+  animation: bgFloat linear infinite;
+}
+
+.bg-floater svg { display: block; }
+
+/* ---- Comedy mask — top left ---- */
+.bg-floater--mask-comedy {
+  top: 12%;
+  left: 3%;
+  width: 90px;
+  color: #F5C518;
+  opacity: 0.12;
+  animation-duration: 28s;
+  animation-delay: -6s;
+  animation-name: bgFloatRotate;
+}
+
+/* ---- Tragedy mask — bottom right ---- */
+.bg-floater--mask-tragedy {
+  bottom: 15%;
+  right: 4%;
+  width: 75px;
+  color: #F5A623;
+  opacity: 0.10;
+  animation-duration: 32s;
+  animation-delay: -14s;
+  animation-name: bgFloatRotate;
+}
+
+/* ---- Leaf 1 — left-center ---- */
+.bg-floater--leaf-1 {
+  top: 45%;
+  left: 1%;
+  width: 55px;
+  color: #3E9E67;
+  opacity: 0.18;
+  animation-duration: 20s;
+  animation-delay: -3s;
+  animation-name: bgFloatLeaf;
+}
+
+/* ---- Leaf 2 — top right ---- */
+.bg-floater--leaf-2 {
+  top: 8%;
+  right: 6%;
+  width: 45px;
+  color: #3DBFB8;
+  opacity: 0.14;
+  animation-duration: 24s;
+  animation-delay: -10s;
+  animation-name: bgFloatLeaf;
+}
+
+/* ---- Puppet silhouette — right mid ---- */
+.bg-floater--puppet {
+  top: 30%;
+  right: 2%;
+  width: 55px;
+  color: #F5C518;
+  opacity: 0.10;
+  animation-duration: 22s;
+  animation-delay: -7s;
+  animation-name: bgFloatPuppet;
+}
+
+/* ---- Geometric cube — bottom left ---- */
+.bg-floater--cube {
+  bottom: 18%;
+  left: 4%;
+  width: 60px;
+  color: #3DBFB8;
+  opacity: 0.12;
+  animation-duration: 35s;
+  animation-delay: -18s;
+  animation-name: bgFloatRotateSlow;
+}
+
+/* ---- Star / sparkle — center top ---- */
+.bg-floater--star {
+  top: 22%;
+  left: 42%;
+  width: 35px;
+  color: #F5C518;
+  opacity: 0.15;
+  animation-duration: 18s;
+  animation-delay: -5s;
+  animation-name: bgFloatPulse;
+}
+
+/* ---- Keyframes ---- */
+@keyframes bgFloat {
+  0%   { transform: translateY(0px) rotate(0deg);   opacity: 0.12; }
+  25%  { transform: translateY(-22px) rotate(5deg);  opacity: 0.16; }
+  50%  { transform: translateY(-8px) rotate(-3deg);  opacity: 0.12; }
+  75%  { transform: translateY(-18px) rotate(4deg);  opacity: 0.15; }
+  100% { transform: translateY(0px) rotate(0deg);   opacity: 0.12; }
+}
+
+@keyframes bgFloatRotate {
+  0%   { transform: translateY(0px)   rotate(0deg);   opacity: 0.10; }
+  33%  { transform: translateY(-18px) rotate(12deg);  opacity: 0.14; }
+  66%  { transform: translateY(-8px)  rotate(-8deg);  opacity: 0.11; }
+  100% { transform: translateY(0px)   rotate(0deg);   opacity: 0.10; }
+}
+
+@keyframes bgFloatLeaf {
+  0%   { transform: translateY(0px)   rotate(0deg)  scaleX(1);    opacity: 0.15; }
+  20%  { transform: translateY(-14px) rotate(8deg)  scaleX(0.96); opacity: 0.20; }
+  50%  { transform: translateY(-6px)  rotate(-5deg) scaleX(1.02); opacity: 0.16; }
+  80%  { transform: translateY(-20px) rotate(6deg)  scaleX(0.98); opacity: 0.18; }
+  100% { transform: translateY(0px)   rotate(0deg)  scaleX(1);    opacity: 0.15; }
+}
+
+@keyframes bgFloatPuppet {
+  0%   { transform: translateY(0px)   rotate(0deg)  skewX(0deg);  opacity: 0.09; }
+  30%  { transform: translateY(-16px) rotate(-6deg) skewX(-2deg); opacity: 0.13; }
+  60%  { transform: translateY(-4px)  rotate(4deg)  skewX(1deg);  opacity: 0.10; }
+  100% { transform: translateY(0px)   rotate(0deg)  skewX(0deg);  opacity: 0.09; }
+}
+
+@keyframes bgFloatRotateSlow {
+  from { transform: translateY(0px)   rotate(0deg);   opacity: 0.11; }
+  50%  { transform: translateY(-12px) rotate(180deg); opacity: 0.14; }
+  to   { transform: translateY(0px)   rotate(360deg); opacity: 0.11; }
+}
+
+@keyframes bgFloatPulse {
+  0%   { transform: scale(1)    rotate(0deg);   opacity: 0.12; }
+  50%  { transform: scale(1.25) rotate(45deg);  opacity: 0.20; }
+  100% { transform: scale(1)    rotate(90deg);  opacity: 0.12; }
+}
+
+/* Parallax — updated via JS scroll */
+.bg-floaters { transform: translateY(var(--parallax-offset, 0px)); }
+
+
+/* ----------------------------------------------------------------
+   3. 3D FLOATING ICONS (Mission / Vision / Values)
+   ---------------------------------------------------------------- */
+.icon-3d {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  perspective: 300px;
+  animation: iconFloat3d 3.5s ease-in-out infinite;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.icon-3d__wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow:
+    0 4px 20px rgba(45,59,85,0.15),
+    0 1px 4px rgba(255,255,255,0.3) inset,
+    0 -1px 4px rgba(0,0,0,0.1) inset;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon-3d__wrap svg {
+  width: 30px;
+  height: 30px;
+}
+
+/* Glow disc beneath icon */
+.icon-3d__glow {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 10px;
+  border-radius: 50%;
+  filter: blur(6px);
+  opacity: 0.5;
+  transition: opacity 0.3s ease, width 0.3s ease;
+}
+
+/* Per-card accent colors */
+.icon-3d--mission {
+  animation-delay: 0s;
+}
+.icon-3d--mission .icon-3d__wrap {
+  background: linear-gradient(135deg, rgba(245,197,24,0.15), rgba(245,166,35,0.08));
+  border-color: rgba(245,197,24,0.35);
+}
+.icon-3d--mission .icon-3d__wrap svg { stroke: #F5C518; }
+.icon-3d--mission .icon-3d__glow    { background: radial-gradient(ellipse, rgba(245,197,24,0.6), transparent); }
+
+.icon-3d--vision {
+  animation-delay: -1.2s;
+}
+.icon-3d--vision .icon-3d__wrap {
+  background: linear-gradient(135deg, rgba(61,191,184,0.15), rgba(45,59,85,0.08));
+  border-color: rgba(61,191,184,0.35);
+}
+.icon-3d--vision .icon-3d__wrap svg { stroke: #3DBFB8; }
+.icon-3d--vision .icon-3d__glow    { background: radial-gradient(ellipse, rgba(61,191,184,0.6), transparent); }
+
+.icon-3d--values {
+  animation-delay: -2.4s;
+}
+.icon-3d--values .icon-3d__wrap {
+  background: linear-gradient(135deg, rgba(245,166,35,0.15), rgba(62,158,103,0.08));
+  border-color: rgba(245,166,35,0.35);
+}
+.icon-3d--values .icon-3d__wrap svg { stroke: #F5A623; fill: rgba(245,166,35,0.1); }
+.icon-3d--values .icon-3d__glow    { background: radial-gradient(ellipse, rgba(245,166,35,0.6), transparent); }
+
+/* Floating animation */
+@keyframes iconFloat3d {
+  0%   { transform: translateY(0px)  rotateX(0deg)   rotateY(0deg);   }
+  20%  { transform: translateY(-9px) rotateX(6deg)   rotateY(4deg);   }
+  40%  { transform: translateY(-5px) rotateX(-3deg)  rotateY(-5deg);  }
+  60%  { transform: translateY(-11px)rotateX(4deg)   rotateY(6deg);   }
+  80%  { transform: translateY(-4px) rotateX(-5deg)  rotateY(-3deg);  }
+  100% { transform: translateY(0px)  rotateX(0deg)   rotateY(0deg);   }
+}
+
+/* Hover — scale + tilt + glow amplify */
+.mvv-card:hover .icon-3d {
+  animation-play-state: paused;
+  transform: translateY(-6px) rotateX(8deg) rotateY(8deg) scale(1.12);
+}
+.mvv-card:hover .icon-3d__wrap {
+  box-shadow:
+    0 8px 32px rgba(45,59,85,0.20),
+    0 2px 6px rgba(255,255,255,0.35) inset;
+}
+.mvv-card:hover .icon-3d__glow {
+  opacity: 0.9;
+  width: 65px;
+}
+
+
+/* ----------------------------------------------------------------
+   4. ENHANCED CARD TILT (Project & MVV cards)
+   ---------------------------------------------------------------- */
+
+/* Tilt handled by JS on .card-3d; add glow edge on hover */
+.card-3d {
+  transition:
+    transform 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+.project-card.card-3d:hover,
+.mvv-card.card-3d:hover {
+  box-shadow:
+    0 24px 60px rgba(45,59,85,0.22),
+    0 8px 24px rgba(45,59,85,0.14),
+    0 0 0 1px rgba(245,197,24,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.55);
+}
+
+/* Glow edge on project cards */
+.project-card.card-3d::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(
+    135deg,
+    rgba(245,197,24,0.08) 0%,
+    rgba(245,166,35,0.05) 50%,
+    rgba(61,191,184,0.06) 100%
+  );
+  pointer-events: none;
+}
+.project-card.card-3d:hover::after { opacity: 1; }
+
+/* Card shine sweep on hover */
+.project-card.card-3d::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255,255,255,0.12) 50%,
+    transparent 80%
+  );
+  transform: skewX(-10deg);
+  transition: left 0.55s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+.project-card.card-3d:hover::before { left: 160%; }
+
+
+/* ----------------------------------------------------------------
+   5. ENHANCED BUTTON EFFECTS
+   ---------------------------------------------------------------- */
+
+/* Pulse ring on primary CTA */
+.btn--yellow {
+  position: relative;
+}
+.btn--yellow::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50px;
+  border: 2px solid rgba(245,197,24,0.5);
+  opacity: 0;
+  animation: btnPulseRing 2.5s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes btnPulseRing {
+  0%   { transform: scale(1);    opacity: 0.6; }
+  80%  { transform: scale(1.14); opacity: 0;   }
+  100% { transform: scale(1.14); opacity: 0;   }
+}
+
+/* Ripple on click already in animations.js; add visual feedback */
+.btn:active {
+  transform: scale(0.97) translateY(0) !important;
+  transition-duration: 0.1s !important;
+}
+
+
+/* ----------------------------------------------------------------
+   6. SCROLL REVEAL — override initial states to be invisible
+      AOS handles the animation; .reveal handles the rest
+   ---------------------------------------------------------------- */
+[data-aos] {
+  /* Ensure AOS elements start invisible until triggered */
+  pointer-events: none;
+}
+[data-aos].aos-animate {
+  pointer-events: auto;
+}
+
+
+/* ----------------------------------------------------------------
+   7. IMPACT COUNTER NUMBERS — big display style
+   ---------------------------------------------------------------- */
+.impact-card__number .js-counter {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 5vw, 3.8rem);
+  font-weight: 800;
+  color: var(--yellow);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  transition: transform 0.1s ease;
+}
+
+/* Pop when counter finishes */
+.impact-card__number .js-counter.counter-done {
+  animation: counterPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes counterPop {
+  0%   { transform: scale(1);    }
+  50%  { transform: scale(1.18); }
+  100% { transform: scale(1);    }
+}
+
+
+/* ----------------------------------------------------------------
+   8. PARALLAX SECTIONS — JS sets --parallax-y CSS var
+   ---------------------------------------------------------------- */
+.parallax-layer {
+  transition: transform 0.05s linear;
+  will-change: transform;
+}
+
+.hero__bg.parallax-layer {
+  transform: translateY(var(--hero-parallax, 0px));
+}
+
+.split__image.parallax-layer img {
+  transform: translateY(var(--about-parallax, 0px)) scale(1.05);
+  transition: transform 0.05s linear;
+}
+
+
+/* ----------------------------------------------------------------
+   9. SCROLL INDICATOR PULSE
+   ---------------------------------------------------------------- */
+.hero__scroll {
+  animation: scrollBounce 2.2s ease-in-out infinite !important;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0);   opacity: 0.7; }
+  50%       { transform: translateX(-50%) translateY(10px); opacity: 1;   }
+}
+
+
+/* ----------------------------------------------------------------
+   10. NAV ENHANCED SCROLL STATE
+   ---------------------------------------------------------------- */
+.navbar.scrolled {
+  background: rgba(255,255,255,0.95) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 24px rgba(45,59,85,0.12) !important;
+}
+
+
+/* ----------------------------------------------------------------
+   11. SECTION ENTRY GLOW HIGHLIGHT (subtle)
+   ---------------------------------------------------------------- */
+#mission.in-view .section-header h2,
+#projects.in-view .section-header h2,
+#volunteer.in-view .section-header h2 {
+  animation: headingGlow 0.8s ease forwards;
+}
+
+@keyframes headingGlow {
+  from { text-shadow: none; }
+  to   { text-shadow: 0 0 40px rgba(245,197,24,0.15); }
+}
+
+
+/* ----------------------------------------------------------------
+   12. MOBILE — reduce / disable heavy effects
+   ---------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .bg-floater--cube,
+  .bg-floater--puppet { display: none; }
+
+  .icon-3d { animation: iconFloatSimple 3s ease-in-out infinite; }
+
+  @keyframes iconFloatSimple {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-8px); }
+  }
+
+  .card-3d { perspective: none; }
+  .card-3d:hover { transform: translateY(-6px) !important; }
+}
+
+/* ----------------------------------------------------------------
+   13. REDUCED MOTION
+   ---------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .bg-floater,
+  .icon-3d,
+  .btn--yellow::after,
+  .hero__scroll {
+    animation: none !important;
+    opacity: 0.08;
+  }
+  .card-3d { transition: box-shadow 0.2s ease !important; }
+  .card-3d:hover { transform: none !important; }
+}
