@@ -1660,18 +1660,18 @@
 
 .glass-input {
   flex-grow: 1;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 1);
   border-radius: 50px;
   padding: 1.25rem 2rem;
-  color: var(--white);
+  color: #111 !important;
   font-size: 1.1rem;
-  backdrop-filter: blur(10px);
+  font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .glass-input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: #555;
 }
 
 .glass-input:focus {
@@ -1682,18 +1682,18 @@
 }
 
 .btn--cta-3d {
-  background: linear-gradient(135deg, var(--secondary) 0%, #E5A800 100%);
-  color: #111;
+  background: linear-gradient(135deg, var(--orange) 0%, #FFD700 100%);
+  color: #111 !important;
   padding: 1.25rem 3rem;
   border-radius: 50px;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 20px rgba(255, 193, 7, 0.4);
 }
 
 .btn--cta-3d:hover {
@@ -1707,5 +1707,42 @@
   }
   .cta-glass-card {
     padding: 3rem 1.5rem;
+  }
+}
+
+
+/* ================================================================
+   31. RESPONSIVENESS AND MOBILE FIXES
+   ================================================================ */
+@media (max-width: 900px) {
+  .navbar__links {
+    display: none !important;
+  }
+  .navbar__hamburger {
+    display: flex !important;
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    width: 95% !important;
+    top: 10px !important;
+    padding: 12px 16px !important;
+  }
+  .navbar__logo img {
+    height: 35px !important;
+  }
+  .cta-glass-card {
+    padding: 3rem 1.5rem !important;
+  }
+  .cta-glass-card__form {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .glass-input {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .btn--cta-3d {
+    width: 100%;
   }
 }
