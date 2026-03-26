@@ -199,12 +199,16 @@ document.addEventListener('DOMContentLoaded', () => {
    * @returns {Promise}
    */
   function sendToGoogleSheet(data) {
-    return fetch(GOOGLE_SHEET_URL, {
+    const params = new URLSearchParams(data);
+    const fetchPromise = fetch(GOOGLE_SHEET_URL, {
       method: 'POST',
       mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      body: params
     });
+    const timeout = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('timeout')), 8000)
+    );
+    return Promise.race([fetchPromise, timeout]);
   }
 
   /* ---------- Form submission (Volunteer) ---------- */
@@ -299,8 +303,8 @@ document.addEventListener('DOMContentLoaded', () => {
       ar: 'حقوق النشر &copy; أيادي المهن | مدعوم من أيادي المهن'
     },
     address: {
-      en: 'Iraq Abdullah Street, Marka City, Amman, Jordan',
-      ar: 'شارع عراق عبد الله، مدينة ماركا، عمّان، الأردن'
+      en: 'King Abdullah II Street (Medical City Street), Complex No. 17, Amman, Jordan',
+      ar: 'شارع الملك عبدالله الثاني (شارع المدينة الطبية)، مجمع رقم 17، عمّان، الأردن'
     }
   };
 

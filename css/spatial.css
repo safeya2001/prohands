@@ -374,3 +374,28 @@
   .step-guide__grid { gap: 1.5rem; }
   .step-item__num { width: 64px; height: 64px; font-size: 1.4rem; }
 }
+
+/* ─── 12. RTL (ARABIC) OVERRIDES ────────────────────────────────────── */
+[dir="rtl"] .value-card::after {
+  transform-origin: right;
+}
+[dir="rtl"] .impact-stat + .impact-stat {
+  border-left: none;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+@media (max-width: 768px) {
+  [dir="rtl"] .impact-stat + .impact-stat { border-right: none; }
+}
+[dir="rtl"] .step-guide__grid::before {
+  left: auto;
+  right: 10%;
+  background: linear-gradient(270deg, var(--primary, #F5C518), var(--teal, #3DBFB8));
+}
+[dir="rtl"] .step-item { direction: rtl; }
+[dir="rtl"] .expand-toggle { flex-direction: row-reverse; }
+[dir="rtl"] .project-card__badge { letter-spacing: 0; }
+[dir="rtl"] .role-card:hover .role-card__icon svg { transform: scale(1.2) rotate(-8deg); }
+[dir="rtl"] .impact-bar { direction: rtl; }
+[dir="rtl"] .impact-stat__label { letter-spacing: 0; }
+[dir="rtl"] .section-header { direction: rtl; text-align: right; }
+[dir="rtl"] .sr-stagger { direction: rtl; }

@@ -290,10 +290,6 @@
               <span class="text-gradient">Welcome to Pro Hands:</span> Empowering Communities for a Sustainable Future!
             </h1>
 
-            <p data-ar="نحن نعلّم ونُلهم ونُحرّك المجتمعات في جميع أنحاء الأردن عبر الفنون الإبداعية ومسرح الدمى والمسرح — لبناء جيل من أبطال البيئة.">
-              We educate, inspire, and mobilise communities across Jordan through creative arts, puppetry, and theatre — building a generation of environmental champions.
-            </p>
-
             <div class="hero__buttons">
               <a href="/about" class="btn btn--yellow" data-ar="اعرف المزيد">Learn More</a>
               <a href="/volunteer" class="btn btn--teal-outline" data-ar="تطوع معنا">Volunteer With Us</a>
@@ -403,7 +399,7 @@
               <div class="icon-3d__glow"></div>
             </div>
             <h3 data-ar="الرسالة">Mission</h3>
-            <p data-ar="تمكين المجتمعات من خلال التعليم والإبداع والوعي البيئي نحو مستقبل مستدام.">Empowering communities through education, creativity, and environmental awareness for a sustainable future.</p>
+            <p data-ar="تثقيف المجتمعات من خلال وسائل إبداعية.">Educating communities through creative mediums.</p>
             <a
               href="about.html"
               class="btn btn--sm btn--navy"
@@ -429,7 +425,7 @@
               <div class="icon-3d__glow"></div>
             </div>
             <h3 data-ar="الرؤية">Vision</h3>
-            <p data-ar="نتصور أردناً مستداماً تقود فيه المجتمعات بالقدوة، ملهمةً الإشراف البيئي والمسؤولية من خلال التعليم الإبداعي.">We envision a sustainable Jordan where communities lead by example, inspiring environmental stewardship and responsibility through creative education.</p>
+            <p data-ar="أردن مستدام تقوده مجتمعاته بنفسها.">A sustainable Jordan led by its own communities.</p>
             <a
               href="about.html"
               class="btn btn--sm btn--navy"
@@ -454,7 +450,7 @@
               <div class="icon-3d__glow"></div>
             </div>
             <h3 data-ar="القيم">Values</h3>
-            <p data-ar="الشمولية والاستدامة والإبداع والمشاركة المجتمعية — تعزيز التعاون والأثر بعيد المدى من خلال التعليم والحلول البيئية المبتكرة.">Inclusivity, Sustainability, Creativity, and Community Engagement — fostering collaboration and long-term impact through education and innovative environmental solutions.</p>
+            <p data-ar="الشمولية والإبداع والتأثير بعيد المدى.">Inclusivity, creativity, and long-term impact.</p>
             <a
               href="about.html"
               class="btn btn--sm btn--navy"
@@ -499,15 +495,15 @@
             <!-- Animated stat counter badge -->
             <div
               class="split__stat"
-              aria-label="Statistic: 480 tons of trash generated every minute worldwide"
+              aria-label="Statistic: 11 tons of trash generated every minute worldwide"
             >
               <div class="split__stat-number">
                 <span
                   class="js-counter"
-                  data-target="480"
+                  data-target="11"
                   data-suffix="ton"
                   aria-live="polite"
-                >480</span><span style="font-size:1.1rem;font-weight:700;margin-left:2px">ton</span>
+                >11</span><span style="font-size:1.1rem;font-weight:700;margin-left:2px">ton</span>
               </div>
               <div class="split__stat-label">of trash every minute</div>
             </div>
@@ -651,49 +647,54 @@
     <!-- ==============================================================
          §4b CORE VALUES
     ============================================================== -->
-    <section class="section section--grey" aria-labelledby="coreValuesHeading">
-      <div class="container">
+    <section class="section corevals-section" aria-labelledby="coreValuesHeading">
+      <!-- dark bg image -->
+      <div class="corevals-section__bg" style="background-image:url('images/aerial-view-of-green-forests-and-blue-lakes-and-ri-T3L66K7a-1.jpg');" aria-hidden="true"></div>
+
+      <div class="container corevals-section__content">
         <header class="section-header" data-aos="fade-up" data-aos-duration="600">
-          <span class="eyebrow" data-ar="نناضل من أجل الكوكب">Fighting For Planet</span>
-          <h2 id="coreValuesHeading" data-ar="قيمنا الجوهرية">Our Core Values</h2>
+          <span class="eyebrow" style="color:var(--teal);" data-ar="نناضل من أجل الكوكب">Fighting For Planet</span>
+          <h2 id="coreValuesHeading" style="color:#fff;" data-ar="قيمنا الجوهرية">Our Core Values</h2>
         </header>
-        <div class="mvv-grid" role="list" aria-label="Core values" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
-          <article class="mvv-card card-3d reveal" role="listitem">
-            <div class="mvv-card__icon icon-3d icon-3d--mission" aria-hidden="true">
-              <div class="icon-3d__wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
-              </div>
-              <div class="icon-3d__glow"></div>
+
+        <div class="corevals-grid" role="list" aria-label="Core values">
+
+          <!-- 1 — Inclusivity -->
+          <article class="coreval-card" role="listitem" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
+            <div class="coreval-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
             </div>
             <h3 data-ar="الشمولية">Inclusivity</h3>
+            <p data-ar="وصول متساوٍ لجميع الجنسين والأعمار والمجتمعات.">Equal access for all genders, ages, and communities.</p>
           </article>
-          <article class="mvv-card card-3d reveal" role="listitem">
-            <div class="mvv-card__icon icon-3d icon-3d--vision" aria-hidden="true">
-              <div class="icon-3d__wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <div class="icon-3d__glow"></div>
+
+          <!-- 2 — Sustainability -->
+          <article class="coreval-card" role="listitem" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+            <div class="coreval-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <h3 data-ar="الاستدامة">Sustainability</h3>
+            <p data-ar="حلول طويلة الأمد ومؤثرة للتحديات البيئية.">Long-term, impactful solutions to environmental challenges.</p>
           </article>
-          <article class="mvv-card card-3d reveal" role="listitem">
-            <div class="mvv-card__icon icon-3d icon-3d--values" aria-hidden="true">
-              <div class="icon-3d__wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              </div>
-              <div class="icon-3d__glow"></div>
+
+          <!-- 3 — Creativity -->
+          <article class="coreval-card" role="listitem" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">
+            <div class="coreval-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
             <h3 data-ar="الإبداع">Creativity</h3>
+            <p data-ar="الفن والأداء ووسائل التواصل لإيصال القضايا البيئية.">Art, performance, and social media to communicate complex issues.</p>
           </article>
-          <article class="mvv-card card-3d reveal" role="listitem">
-            <div class="mvv-card__icon icon-3d" style="--icon-hue:180" aria-hidden="true">
-              <div class="icon-3d__wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </div>
-              <div class="icon-3d__glow"></div>
+
+          <!-- 4 — Community Engagement -->
+          <article class="coreval-card" role="listitem" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+            <div class="coreval-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
             <h3 data-ar="المشاركة المجتمعية">Community Engagement</h3>
+            <p data-ar="ورش عمل وعروض ومشاريع تعاونية.">Collaborative workshops, performances, and projects.</p>
           </article>
+
         </div>
       </div>
     </section><!-- /#core-values -->
@@ -856,6 +857,7 @@
           data-aos-duration="600"
           data-aos-delay="100"
         >
+          <span class="eyebrow" style="color:var(--teal);" data-ar="المقاييس">Metrics</span>
           <h2
             id="impactHeading"
             style="color:var(--white);"
@@ -866,9 +868,9 @@
           </p>
         </header>
 
-        <div class="impact-grid" role="list" aria-label="Impact statistics">
+        <div class="impact-grid impact-grid--2col" role="list" aria-label="Impact statistics">
 
-          <!-- Stat 1 — 480 ton of trash -->
+          <!-- Stat 1 — Social Media Reach -->
           <div
             class="impact-card reveal"
             role="listitem"
@@ -876,23 +878,21 @@
             data-aos-delay="100"
             data-aos-duration="600"
           >
-            <div class="impact-card__visual" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                <polyline points="3 6 5 6 21 6"/>
-                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-              </svg>
+            <div class="impact-card__visual impact-card__visual--img" aria-hidden="true">
+              <img src="images/post1.png" alt="" loading="lazy">
             </div>
             <div class="impact-card__body">
               <div class="impact-card__number">
-                <span class="js-counter" data-target="480" aria-live="polite">480</span
-                ><span style="font-size:1.1rem;font-weight:600;margin-left:2px">ton</span>
+                <span class="js-counter" data-target="500000" aria-live="polite">500,000</span
+                ><span style="font-size:1.1rem;font-weight:600">+</span>
               </div>
-              <h3>Waste Generated Every Minute</h3>
-              <p>The urgent global reality driving our mission to educate and inspire Jordanian communities.</p>
+              <h3 data-ar="الوصول عبر التواصل الاجتماعي">Social Media Reach</h3>
+              <p data-ar="تجاوز وصولنا عبر التواصل الاجتماعي 500,000 شخص ممن يتعلمون عن الاستدامة والحياة الخضراء.">Our social media campaigns have reached over 500,000 individuals, spreading awareness about sustainability and green living.</p>
+              <a href="projects/puppet.html" class="btn btn--sm btn--navy" style="margin-top:1rem;" data-ar="اعرف أكثر">Learn more</a>
             </div>
           </div>
 
-          <!-- Stat 2 — Communities reached -->
+          <!-- Stat 2 — Participants Engaged -->
           <div
             class="impact-card reveal"
             role="listitem"
@@ -900,68 +900,18 @@
             data-aos-delay="200"
             data-aos-duration="600"
           >
-            <div class="impact-card__visual" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
+            <div class="impact-card__visual impact-card__visual--img" aria-hidden="true">
+              <img src="images/group-of-environmental-conservation-people-hands-p-PXQ49EB-1.png" alt="" loading="lazy">
             </div>
             <div class="impact-card__body">
               <div class="impact-card__number">
-                <span class="js-counter" data-target="12" aria-live="polite">12</span
+                <span class="js-counter" data-target="170000" aria-live="polite">170,000</span
                 ><span style="font-size:1.1rem;font-weight:600">+</span>
               </div>
-              <h3>Communities Reached</h3>
-              <p>Environmental awareness programmes delivered across multiple communities throughout Jordan.</p>
-            </div>
-          </div>
-
-          <!-- Stat 3 — Active projects -->
-          <div
-            class="impact-card reveal"
-            role="listitem"
-            data-aos="fade-up"
-            data-aos-delay="300"
-            data-aos-duration="600"
-          >
-            <div class="impact-card__visual" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-              </svg>
-            </div>
-            <div class="impact-card__body">
-              <div class="impact-card__number">
-                <span class="js-counter" data-target="3" aria-live="polite">3</span
-                ><span style="font-size:1.1rem;font-weight:600">+</span>
-              </div>
-              <h3>Active Projects</h3>
-              <p>From puppet training to comedy and alternative transportation — real projects making real change.</p>
-            </div>
-          </div>
-
-          <!-- Stat 4 — Volunteers -->
-          <div
-            class="impact-card reveal"
-            role="listitem"
-            data-aos="fade-up"
-            data-aos-delay="400"
-            data-aos-duration="600"
-          >
-            <div class="impact-card__visual" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-              </svg>
-            </div>
-            <div class="impact-card__body">
-              <div class="impact-card__number">
-                <span class="js-counter" data-target="50" aria-live="polite">50</span
-                ><span style="font-size:1.1rem;font-weight:600">+</span>
-              </div>
-              <h3>Volunteers &amp; Educators</h3>
-              <p>Dedicated community members who give their time to train, perform, and spread awareness.</p>
+              <h3 data-ar="المشاركون الفاعلون">Participants Engaged</h3>
+              <p data-ar="أكثر من 170,000 شخص شاركوا في برامجنا وورش عملنا وحملاتنا الرقمية.">
+ More than 170,000 people have engaged with our programs, workshops, and digital campaigns.</p>
+              <a href="about.html" class="btn btn--sm btn--navy" style="margin-top:1rem;" data-ar="اعرف أكثر">Learn more</a>
             </div>
           </div>
 
@@ -1013,6 +963,7 @@
             id="newsletterEmail"
             name="email"
             placeholder="Your email address"
+            data-placeholder-ar="بريدك الإلكتروني"
             autocomplete="email"
             required
             aria-required="true"
@@ -1021,7 +972,7 @@
           <span id="newsletterHint" class="sr-only">
             Enter your email address to subscribe to updates from Pro Hands.
           </span>
-          <button type="submit" class="btn btn--yellow">Subscribe</button>
+          <button type="submit" class="btn btn--yellow" data-ar="اشترك">Subscribe</button>
         </form>
 
       </div>
