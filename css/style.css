@@ -1409,15 +1409,19 @@ p  { margin-bottom: 1rem; }
 [dir="rtl"] body { font-family: var(--font-arabic); }
 [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3,
 [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 { font-family: var(--font-arabic); }
+[dir="rtl"] p, [dir="rtl"] li, [dir="rtl"] span, [dir="rtl"] a { text-align: right; }
+[dir="rtl"] .section-header { text-align: right; }
 [dir="rtl"] .navbar__links { flex-direction: row-reverse; }
 [dir="rtl"] .navbar__logo { flex-direction: row-reverse; }
+[dir="rtl"] .navbar__links a::after { left: auto; right: 0; }
 [dir="rtl"] .split { direction: rtl; }
 [dir="rtl"] .split > * { direction: rtl; }
 [dir="rtl"] .footer__grid { direction: rtl; }
 [dir="rtl"] .footer__contact li { flex-direction: row-reverse; text-align: right; }
 [dir="rtl"] .link-arrow::after { content: '←'; }
-[dir="rtl"] .mvv-card { border-left: none; border-right: 4px solid transparent; }
+[dir="rtl"] .mvv-card { border-left: none; border-right: 4px solid transparent; text-align: right; }
 [dir="rtl"] .mvv-card:hover { border-right-color: var(--teal); }
+[dir="rtl"] .mvv-card__icon { margin-left: 0; margin-right: 0; }
 [dir="rtl"] .about-values-list li { padding-left: 0; padding-right: 32px; }
 [dir="rtl"] .about-values-list li::before { left: auto; right: 0; }
 [dir="rtl"] .project-detail__body ul li { padding-left: 0; padding-right: 28px; }
@@ -1425,6 +1429,10 @@ p  { margin-bottom: 1rem; }
 [dir="rtl"] .split__stat { left: auto; right: 24px; }
 [dir="rtl"] .eyebrow { text-align: right; }
 [dir="rtl"] .faq-item__q { flex-direction: row-reverse; }
+[dir="rtl"] .coreval-card { text-align: right; }
+[dir="rtl"] .role-card { text-align: right; }
+[dir="rtl"] .project-card { text-align: right; }
+[dir="rtl"] .hero__content { text-align: right; }
 
 /* ============================================
    HASHTAGS (footer)
