@@ -326,6 +326,7 @@ p  { margin-bottom: 1rem; }
   font-size: clamp(2.4rem, 5.5vw, 3.8rem);
   margin-bottom: 24px;
   font-weight: 800;
+  line-height: 1.25;
 }
 .hero__content h1 span { display: block; }
 .hero__content p {
@@ -1433,6 +1434,7 @@ p  { margin-bottom: 1rem; }
 [dir="rtl"] .role-card { text-align: right; }
 [dir="rtl"] .project-card { text-align: right; }
 [dir="rtl"] .hero__content { text-align: right; }
+[dir="rtl"] .hero__content h1 { line-height: 1.6; font-size: clamp(1.6rem, 5vw, 3rem); }
 [dir="rtl"] .hero__content p { margin-left: 0; margin-right: 0; }
 [dir="rtl"] .hero__buttons { justify-content: flex-end; }
 
