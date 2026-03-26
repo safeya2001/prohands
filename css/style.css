@@ -1433,6 +1433,8 @@ p  { margin-bottom: 1rem; }
 [dir="rtl"] .role-card { text-align: right; }
 [dir="rtl"] .project-card { text-align: right; }
 [dir="rtl"] .hero__content { text-align: right; }
+[dir="rtl"] .hero__content p { margin-left: 0; margin-right: 0; }
+[dir="rtl"] .hero__buttons { justify-content: flex-end; }
 
 /* ============================================
    HASHTAGS (footer)
