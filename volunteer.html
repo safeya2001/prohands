@@ -10,6 +10,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/cropped-fav-180x180.png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/enhanced-3d.css">
+  <link rel="stylesheet" href="css/spatial.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -67,7 +68,7 @@
         <p data-ar="اختر الدور الذي يناسب مهاراتك وشغفك.">Choose the role that best fits your skills and passion.</p>
       </div>
       <div class="roles-grid">
-        <div class="role-card glass-panel-light reveal">
+        <div class="role-card glass-panel-light reveal" data-tilt data-tilt-max="8">
           <div class="role-card__icon">
             <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           </div>
@@ -75,7 +76,7 @@
           <p style="font-size:.85rem; color:var(--text-muted); margin-bottom:12px;" data-ar="ساعد في إنشاء وتقديم عروض الدمى التي تعلم الأطفال عن الاستدامة والقضايا البيئية.">Help create and perform puppet shows that teach children about sustainability and environmental issues.</p>
           <a href="#apply" class="btn btn--yellow btn--sm" data-ar="قدم الآن">Apply Now</a>
         </div>
-        <div class="role-card glass-panel-light reveal reveal-delay-1">
+        <div class="role-card glass-panel-light reveal reveal-delay-1" data-tilt data-tilt-max="8">
           <div class="role-card__icon">
             <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
           </div>
@@ -83,7 +84,7 @@
           <p style="font-size:.85rem; color:var(--text-muted); margin-bottom:12px;" data-ar="قيادة ورش عمل تعليمية حول الاستدامة والممارسات الصديقة للبيئة والحياة الخضراء للشباب والمجتمعات.">Lead educational workshops on sustainability, eco-friendly practices, and green living for youth and communities.</p>
           <a href="#apply" class="btn btn--yellow btn--sm" data-ar="قدم الآن">Apply Now</a>
         </div>
-        <div class="role-card glass-panel-light reveal reveal-delay-2">
+        <div class="role-card glass-panel-light reveal reveal-delay-2" data-tilt data-tilt-max="8">
           <div class="role-card__icon">
             <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           </div>
@@ -91,13 +92,77 @@
           <p style="font-size:.85rem; color:var(--text-muted); margin-bottom:12px;" data-ar="تخطيط وتنسيق الفعاليات المجتمعية والعروض وأنشطة التوعية في جميع أنحاء الأردن.">Plan and coordinate community events, performances, and outreach activities across Jordan.</p>
           <a href="#apply" class="btn btn--yellow btn--sm" data-ar="قدم الآن">Apply Now</a>
         </div>
-        <div class="role-card glass-panel-light reveal reveal-delay-3">
+        <div class="role-card glass-panel-light reveal reveal-delay-3" data-tilt data-tilt-max="8">
           <div class="role-card__icon">
             <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </div>
           <h4 data-ar="صناع محتوى التواصل الاجتماعي">Social media content creators</h4>
           <p style="font-size:.85rem; color:var(--text-muted); margin-bottom:12px;" data-ar="إنشاء محتوى جذاب لمنصات التواصل الاجتماعي لنشر الوعي وتنمية مجتمعنا.">Create engaging content for our social media platforms to spread awareness and grow our community.</p>
           <a href="#apply" class="btn btn--yellow btn--sm" data-ar="قدم الآن">Apply Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STEP GUIDE ========== -->
+  <section class="section step-guide">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow" data-ar="كيف تبدأ">How It Works</span>
+        <h2 data-ar="خطوات التقديم">Application Process</h2>
+      </div>
+      <div class="step-guide__grid">
+        <div class="step-item">
+          <div class="step-item__num">1</div>
+          <div class="step-item__title" data-ar="املأ النموذج">Fill the Form</div>
+          <p class="step-item__text" data-ar="أخبرنا عن نفسك ومهاراتك.">Tell us about yourself and your skills.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-item__num">2</div>
+          <div class="step-item__title" data-ar="نراجعك">We Review</div>
+          <p class="step-item__text" data-ar="سيراجع فريقنا طلبك خلال 3-5 أيام.">Our team reviews your application within 3–5 days.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-item__num">3</div>
+          <div class="step-item__title" data-ar="لقاء تعارف">Meet & Greet</div>
+          <p class="step-item__text" data-ar="نتواصل معك لجدولة لقاء قصير.">We reach out to schedule a brief orientation call.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-item__num">4</div>
+          <div class="step-item__title" data-ar="ابدأ التأثير">Start Impacting</div>
+          <p class="step-item__text" data-ar="انضم لفريقنا وابدأ بإحداث الفرق.">Join the team and start making a real difference.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STEP GUIDE ========== -->
+  <section class="section step-guide">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow" data-ar="كيف تبدأ">How It Works</span>
+        <h2 data-ar="خطوات التقديم">Application Process</h2>
+      </div>
+      <div class="step-guide__grid">
+        <div class="step-item">
+          <div class="step-item__num">1</div>
+          <div class="step-item__title" data-ar="املأ النموذج">Fill the Form</div>
+          <p class="step-item__text" data-ar="أخبرنا عن نفسك ومهاراتك.">Tell us about yourself and your skills.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-item__num">2</div>
+          <div class="step-item__title" data-ar="نراجعك">We Review</div>
+          <p class="step-item__text" data-ar="سيراجع فريقنا طلبك خلال 3-5 أيام.">Our team reviews your application within 3–5 days.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-item__num">3</div>
+          <div class="step-item__title" data-ar="لقاء تعارف">Meet &amp; Greet</div>
+          <p class="step-item__text" data-ar="نتواصل معك لجدولة لقاء قصير.">We reach out to schedule a brief orientation call.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-item__num">4</div>
+          <div class="step-item__title" data-ar="ابدأ التأثير">Start Impacting</div>
+          <p class="step-item__text" data-ar="انضم لفريقنا وابدأ بإحداث الفرق.">Join the team and start making a real difference.</p>
         </div>
       </div>
     </div>
@@ -138,7 +203,7 @@
           <label for="v-message" data-ar="الرسالة">Message</label>
           <textarea id="v-message" name="message" placeholder="Tell us about yourself and why you'd like to volunteer..." data-placeholder-ar="أخبرنا عن نفسك ولماذا ترغب في التطوع..."></textarea>
         </div>
-        <button type="submit" class="btn btn--yellow" style="width:100%;" data-ar="إرسال الطلب">Submit Application</button>
+        <button type="submit" class="btn btn--yellow btn--pulse" style="width:100%;" data-ar="إرسال الطلب">Submit Application</button>
       </form>
     </div>
   </section>
@@ -205,5 +270,7 @@
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
   <script src="js/shared-footer.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/spatial.js"></script>
 </body>
 </html>

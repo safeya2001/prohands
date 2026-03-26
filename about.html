@@ -10,6 +10,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/cropped-fav-180x180.png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/enhanced-3d.css">
+  <link rel="stylesheet" href="css/spatial.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -44,7 +45,7 @@
   <main id="main-content">
 
   <!-- ========== PAGE HERO ========== -->
-  <section class="page-hero page-hero--bg" style="background-image:url('images/aerial-view-of-green-forests-and-blue-lakes-and-ri-T3L66K7a-1.jpg')">
+  <section class="page-hero page-hero--bg page-hero--shimmer" style="background-image:url('images/aerial-view-of-green-forests-and-blue-lakes-and-ri-T3L66K7a-1.jpg')">
     <div class="page-hero__content">
       <h1 data-ar="من نحن">About Us</h1>
       <p data-ar="تمكين المجتمعات من خلال التعليم والإبداع والإشراف البيئي.">Empowering communities through education, creativity, and environmental stewardship.</p>
@@ -63,7 +64,7 @@
           <p data-ar-html="&lt;strong&gt;التمكين:&lt;/strong&gt; بناء مهارات القيادة بين الشباب والفئات المهمشة من خلال ورش العمل والمشاريع العملية."><strong>Empowerment:</strong> Building leadership skills among youth and underrepresented groups through workshops and hands-on projects.</p>
           <p data-ar-html="&lt;strong&gt;المشاركة:&lt;/strong&gt; إنشاء حوارات وإجراءات هادفة حول الحفاظ على البيئة داخل المدارس والجامعات والمجتمعات المحلية."><strong>Engagement:</strong> Creating meaningful dialogues and actions around environmental conservation within schools, universities, and local communities.</p>
         </div>
-        <div class="split__image reveal reveal-delay-1">
+        <div class="split__image reveal reveal-delay-1" data-tilt data-tilt-max="8" data-tilt-scale="1.04">
           <img src="images/group-of-environmental-conservation-people-hands-p-PXQ49EB-1.jpg" alt="Volunteers holding seedlings" class="img-3d-float" style="border-radius:50%; aspect-ratio:1; object-fit:cover;">
         </div>
       </div>
@@ -74,7 +75,7 @@
   <section class="section section--grey">
     <div class="container">
       <div class="split">
-        <div class="split__image reveal">
+        <div class="split__image reveal" data-tilt data-tilt-max="8" data-tilt-scale="1.04">
           <img src="images/aerial-view-of-green-forest-with-tall-pine-trees-a-DTG8JWQ-1.jpg" alt="Aerial view of green forest with river" class="img-3d-float" style="border-radius:var(--radius-lg);">
         </div>
         <div class="split__text reveal reveal-delay-1">
@@ -93,12 +94,64 @@
         <span class="eyebrow eyebrow--teal" data-ar="ما يدفعنا">What Drives Us</span>
         <h2 data-ar="قيمنا الأساسية">Our Core Values</h2>
       </div>
-      <ul class="about-values-list reveal">
-        <li data-ar-html="&lt;strong&gt;الشمولية:&lt;/strong&gt; ضمان الوصول المتساوي إلى برامجنا لجميع الأجناس والفئات العمرية والمجتمعات، خاصة المناطق المحرومة في جميع أنحاء الأردن."><strong>Inclusivity:</strong> Ensuring equal access to our programs for all genders, age groups, and communities, especially underserved areas across Jordan.</li>
-        <li data-ar-html="&lt;strong&gt;الاستدامة:&lt;/strong&gt; الدعوة إلى حلول طويلة الأمد ومؤثرة لتحديات الأردن البيئية من خلال التعليم والمشاريع العملية."><strong>Sustainability:</strong> Advocating for long-term, impactful solutions to Jordan's environmental challenges through education and actionable projects.</li>
-        <li data-ar-html="&lt;strong&gt;الإبداع:&lt;/strong&gt; الاستفادة من الفن والأداء ووسائل التواصل الاجتماعي لإيصال القضايا البيئية المعقدة بطريقة جذابة وقريبة."><strong>Creativity:</strong> Leveraging art, performance, and social media to communicate complex environmental issues in an engaging and relatable way.</li>
-        <li data-ar-html="&lt;strong&gt;المشاركة المجتمعية:&lt;/strong&gt; إشراك المجتمعات المحلية في عملية التغيير من خلال ورش العمل والعروض والمشاريع التعاونية."><strong>Community Engagement:</strong> Involving local communities in the process of change through collaborative workshops, performances, and projects.</li>
-      </ul>
+      <div class="values-bento sr-stagger">
+        <!-- Inclusivity -->
+        <div class="value-card" data-tilt data-tilt-max="8">
+          <div class="value-card__icon value-card__icon--green">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="3" cy="6" r="2"/><circle cx="21" cy="6" r="2"/><circle cx="3" cy="18" r="2"/><circle cx="21" cy="18" r="2"/><line x1="12" y1="9" x2="3" y2="7"/><line x1="12" y1="9" x2="21" y2="7"/><line x1="12" y1="15" x2="3" y2="17"/><line x1="12" y1="15" x2="21" y2="17"/></svg>
+          </div>
+          <h3 data-ar="الشمولية">Inclusivity</h3>
+          <p data-ar="ضمان الوصول المتساوي إلى برامجنا لجميع الأجناس والفئات العمرية والمجتمعات، خاصة المناطق المحرومة في جميع أنحاء الأردن.">Ensuring equal access to our programs for all genders, age groups, and communities, especially underserved areas across Jordan.</p>
+        </div>
+        <!-- Sustainability -->
+        <div class="value-card" data-tilt data-tilt-max="8">
+          <div class="value-card__icon value-card__icon--yellow">
+            <svg viewBox="0 0 24 24"><path d="M12 22V12"/><path d="M12 12C12 12 17 7 20 3c0 0-6 0-10 4S8 17 12 17"/><path d="M12 12C12 12 7 7 4 3c0 0 6 0 10 4"/></svg>
+          </div>
+          <h3 data-ar="الاستدامة">Sustainability</h3>
+          <p data-ar="الدعوة إلى حلول طويلة الأمد ومؤثرة لتحديات الأردن البيئية من خلال التعليم والمشاريع العملية.">Advocating for long-term, impactful solutions to Jordan's environmental challenges through education and actionable projects.</p>
+        </div>
+        <!-- Creativity -->
+        <div class="value-card" data-tilt data-tilt-max="8">
+          <div class="value-card__icon value-card__icon--blue">
+            <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          </div>
+          <h3 data-ar="الإبداع">Creativity</h3>
+          <p data-ar="الاستفادة من الفن والأداء ووسائل التواصل الاجتماعي لإيصال القضايا البيئية المعقدة بطريقة جذابة وقريبة.">Leveraging art, performance, and social media to communicate complex environmental issues in an engaging and relatable way.</p>
+        </div>
+        <!-- Community Engagement -->
+        <div class="value-card" data-tilt data-tilt-max="8">
+          <div class="value-card__icon value-card__icon--orange">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 data-ar="المشاركة المجتمعية">Community Engagement</h3>
+          <p data-ar="إشراك المجتمعات المحلية في عملية التغيير من خلال ورش العمل والعروض والمشاريع التعاونية.">Involving local communities in the process of change through collaborative workshops, performances, and projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== IMPACT STATS BAR ========== -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="impact-bar reveal">
+        <div class="impact-stat">
+          <span class="impact-stat__number" data-count="480" data-suffix="+">480+</span>
+          <span class="impact-stat__label" data-ar="طن من النفايات عولجت">Tons of Waste Addressed</span>
+        </div>
+        <div class="impact-stat">
+          <span class="impact-stat__number" data-count="3000" data-suffix="+">3000+</span>
+          <span class="impact-stat__label" data-ar="شاب تم الوصول إليه">Youth Reached</span>
+        </div>
+        <div class="impact-stat">
+          <span class="impact-stat__number" data-count="3" data-suffix="+">3+</span>
+          <span class="impact-stat__label" data-ar="مشاريع أطلقت">Projects Launched</span>
+        </div>
+        <div class="impact-stat">
+          <span class="impact-stat__number" data-count="100" data-suffix="+">100+</span>
+          <span class="impact-stat__label" data-ar="متطوعون">Volunteers</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -128,5 +181,6 @@
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
   <script src="js/shared-footer.js"></script>
+  <script src="js/spatial.js"></script>
 </body>
 </html>

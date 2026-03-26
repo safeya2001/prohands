@@ -1,0 +1,376 @@
+/* ==========================================================================
+   SPATIAL 3D — Pro Hands (Vanilla Three-Layer System)
+   Consistent with: --primary #F5C518, --orange #F5A623, --navy #2D3B55, --teal #3DBFB8
+   ========================================================================== */
+
+/* ─── 1. CARD TILT ENGINE ─────────────────────────────────────────────── */
+[data-tilt] {
+  transform-style: preserve-3d;
+  will-change: transform;
+  cursor: default;
+}
+[data-tilt] .tilt-child {
+  transform: translateZ(30px);
+  pointer-events: none;
+}
+
+/* ─── 2. VALUES BENTO GRID ───────────────────────────────────────────── */
+.values-bento {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  margin-top: 3rem;
+  perspective: 1400px;
+}
+@media (max-width: 768px) {
+  .values-bento { grid-template-columns: 1fr; }
+}
+
+.value-card {
+  background: var(--white, #fff);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  border: 1px solid rgba(45, 59, 85, 0.06);
+  box-shadow: 0 4px 24px rgba(45, 59, 85, 0.06);
+  transition: box-shadow 0.45s ease;
+  transform-style: preserve-3d;
+  position: relative;
+  overflow: hidden;
+}
+.value-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--primary, #F5C518), var(--teal, #3DBFB8));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  border-radius: 20px 20px 0 0;
+}
+.value-card:hover::after { transform: scaleX(1); }
+.value-card:hover {
+  box-shadow: 0 24px 60px rgba(45, 59, 85, 0.14);
+}
+
+.value-card__icon {
+  width: 60px; height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+}
+.value-card__icon svg {
+  width: 28px; height: 28px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.value-card:hover .value-card__icon {
+  transform: translateZ(25px) rotate(-6deg) scale(1.12);
+}
+.value-card__icon--green  { background: linear-gradient(135deg, #3DBFB8, #2ecc71); }
+.value-card__icon--yellow { background: linear-gradient(135deg, #F5C518, #F5A623); }
+.value-card__icon--blue   { background: linear-gradient(135deg, #2D3B55, #3498db); }
+.value-card__icon--orange { background: linear-gradient(135deg, #F5A623, #e74c3c); }
+
+.value-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy, #2D3B55);
+  margin-bottom: .6rem;
+  transform: translateZ(0);
+  transition: transform 0.45s ease;
+}
+.value-card:hover h3 {
+  transform: translateZ(20px);
+}
+.value-card p {
+  color: var(--text-muted, #6b7b99);
+  line-height: 1.7;
+  font-size: .9rem;
+  transform: translateZ(0);
+  transition: transform 0.45s ease 0.05s;
+}
+.value-card:hover p {
+  transform: translateZ(15px);
+}
+
+/* ─── 3. IMPACT STATS BAR ────────────────────────────────────────────── */
+.impact-bar {
+  background: var(--navy, #2D3B55);
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  margin: 4rem 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.impact-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(61, 191, 184, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  .impact-bar { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+}
+@media (max-width: 480px) {
+  .impact-bar { grid-template-columns: 1fr; }
+}
+
+.impact-stat { position: relative; }
+.impact-stat__number {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--primary, #F5C518);
+  line-height: 1;
+  display: block;
+  font-variant-numeric: tabular-nums;
+}
+.impact-stat__label {
+  display: block;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: .85rem;
+  margin-top: .4rem;
+  letter-spacing: 0.5px;
+}
+.impact-stat + .impact-stat {
+  border-left: 1px solid rgba(255,255,255,0.1);
+}
+@media (max-width: 768px) {
+  .impact-stat + .impact-stat { border-left: none; }
+}
+
+/* ─── 4. PROJECT CARD ENHANCEMENTS ───────────────────────────────────── */
+.project-card {
+  transition: box-shadow 0.4s ease;
+}
+.project-card[data-tilt]:hover {
+  box-shadow: 0 28px 70px rgba(45, 59, 85, 0.18);
+}
+.project-card__badge {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+.project-card__badge--active   { background: rgba(46,204,113,.15); color: #27ae60; }
+.project-card__badge--completed{ background: rgba(52,152,219,.15); color: #2980b9; }
+.project-card__badge--upcoming { background: rgba(245,197,24,.15); color: #c9a800; }
+
+/* Expand section */
+.project-card__expand {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
+  opacity: 0;
+}
+.project-card.is-open .project-card__expand {
+  max-height: 200px;
+  opacity: 1;
+}
+.expand-toggle {
+  background: none;
+  border: none;
+  color: var(--teal, #3DBFB8);
+  font-size: .85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .4rem 0;
+  margin-top: .75rem;
+  transition: color 0.3s;
+}
+.expand-toggle svg {
+  width: 16px; height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  transition: transform 0.4s ease;
+}
+.project-card.is-open .expand-toggle svg {
+  transform: rotate(180deg);
+}
+.project-card__details {
+  padding-top: .75rem;
+  font-size: .9rem;
+  color: var(--text-muted, #6b7b99);
+  line-height: 1.7;
+  border-top: 1px solid rgba(0,0,0,.06);
+  margin-top: .5rem;
+}
+
+/* ─── 5. STEP GUIDE (VOLUNTEER PAGE) ─────────────────────────────────── */
+.step-guide {
+  counter-reset: steps;
+  padding: 4rem 0;
+}
+.step-guide__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0;
+  position: relative;
+}
+.step-guide__grid::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary, #F5C518), var(--teal, #3DBFB8));
+  z-index: 0;
+}
+@media (max-width: 768px) {
+  .step-guide__grid::before { display: none; }
+  .step-guide__grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  z-index: 1;
+  animation: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.step-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.step-item__num {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--navy, #2D3B55), var(--teal, #3DBFB8));
+  box-shadow: 0 8px 24px rgba(45,59,85,0.3);
+  margin-bottom: 1.25rem;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.45s ease;
+}
+.step-item:hover .step-item__num {
+  transform: scale(1.12) translateY(-4px);
+  box-shadow: 0 16px 40px rgba(61,191,184,0.35);
+}
+.step-item__title {
+  font-weight: 700;
+  color: var(--navy, #2D3B55);
+  font-size: 1rem;
+  margin-bottom: .4rem;
+}
+.step-item__text {
+  color: var(--text-muted, #6b7b99);
+  font-size: .85rem;
+  line-height: 1.6;
+}
+
+/* ─── 6. PULSING CTA BUTTON ──────────────────────────────────────────── */
+.btn--pulse {
+  position: relative;
+}
+.btn--pulse::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 2px solid var(--primary, #F5C518);
+  opacity: 0;
+  animation: pulsering 2.5s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes pulsering {
+  0%   { opacity: .7; transform: scale(1); }
+  100% { opacity: 0;  transform: scale(1.35); }
+}
+
+/* ─── 7. ROLE CARD ICON ANIMATION ───────────────────────────────────── */
+.role-card__icon svg {
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s;
+}
+.role-card:hover .role-card__icon svg {
+  transform: scale(1.2) rotate(8deg);
+  color: var(--primary, #F5C518);
+}
+.role-card {
+  transition: box-shadow 0.4s ease;
+}
+.role-card:hover {
+  box-shadow: 0 20px 50px rgba(45,59,85,0.14);
+}
+
+/* ─── 8. FLOATING ANIMATION ─────────────────────────────────────────── */
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0);}
+  50%       { transform: translateY(-10px);}
+}
+.float-loop {
+  animation: floatUp 4s ease-in-out infinite;
+}
+.float-loop-delay {
+  animation: floatUp 4.5s ease-in-out infinite 0.8s;
+}
+
+/* ─── 9. STAGGER REVEAL UTILITY ──────────────────────────────────────── */
+.sr-stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.sr-stagger.is-visible > * { opacity: 1; transform: none; }
+.sr-stagger.is-visible > *:nth-child(1) { transition-delay: 0s; }
+.sr-stagger.is-visible > *:nth-child(2) { transition-delay: .1s; }
+.sr-stagger.is-visible > *:nth-child(3) { transition-delay: .2s; }
+.sr-stagger.is-visible > *:nth-child(4) { transition-delay: .3s; }
+
+/* ─── 10. PAGE HERO PARTICLE SHIMMER ────────────────────────────────── */
+.page-hero--shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.04) 50%,
+    transparent 70%
+  );
+  background-size: 200% 200%;
+  animation: shimmer 6s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* ─── 11. RESPONSIVE MOBILE TIGHTENING ──────────────────────────────── */
+@media (max-width: 768px) {
+  .values-bento  { gap: 1rem; margin-top: 2rem; }
+  .impact-bar    { padding: 2rem 1rem; border-radius: 16px; }
+  .step-guide__grid { gap: 1.5rem; }
+  .step-item__num { width: 64px; height: 64px; font-size: 1.4rem; }
+}
