@@ -51,7 +51,7 @@ class SharedFooter extends HTMLElement {
             </ul>
           </div>
         </div>
-        <div class="footer__bottom">Copyright &copy; 2024 Pro Hands | All Rights Reserved | Design by Pro Hands</div>
+        <div class="footer__bottom">Copyright &copy; Pro Hands | Powered by Pro Hands</div>
       </div>
     </footer>
     `;
