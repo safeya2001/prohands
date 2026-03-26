@@ -579,7 +579,7 @@ p  { margin-bottom: 1rem; }
   position: relative;
   z-index: 1;
 }
-.corevals-section .section-header h2 { color: #fff; }
+.corevals-section .section-header h2 { color: var(--teal); }
 .corevals-section .section-header p   { color: rgba(255,255,255,.75); }
 
 .corevals-grid {
@@ -633,12 +633,20 @@ p  { margin-bottom: 1rem; }
   font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 10px;
+  transition: color .35s ease;
+}
+.coreval-card:hover h3 {
+  color: #fff;
 }
 .coreval-card p {
   color: rgba(255,255,255,.7);
   font-size: .9rem;
   line-height: 1.6;
   margin: 0;
+  transition: color .35s ease;
+}
+.coreval-card:hover p {
+  color: rgba(255,255,255,.75);
 }
 @media (max-width: 900px) {
   .corevals-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1306,6 +1314,8 @@ p  { margin-bottom: 1rem; }
   .navbar__hamburger { display: flex; }
 
   .mvv-grid { grid-template-columns: 1fr; gap: 20px; }
+  .mvv-card { text-align: center; }
+  .mvv-card__icon { margin-left: auto; margin-right: auto; }
   .projects-grid { grid-template-columns: 1fr; gap: 20px; }
   .impact-grid { grid-template-columns: 1fr; gap: 20px; }
   .roles-grid { grid-template-columns: 1fr; gap: 16px; }
