@@ -1326,6 +1326,8 @@ p  { margin-bottom: 1rem; }
     gap: 32px;
   }
   .split--reverse { direction: ltr; }
+  .split--img-after .split__image { order: 2; }
+  .split--img-after .split__text  { order: 1; }
 
   .footer__grid {
     grid-template-columns: 1fr;
