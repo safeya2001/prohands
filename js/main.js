@@ -308,6 +308,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Cache original English text ONCE before any language swap
+  document.querySelectorAll('[data-ar]').forEach(el => {
+    if (!el.dataset.en) el.dataset.en = el.textContent.trim();
+  });
+  document.querySelectorAll('[data-ar-html]').forEach(el => {
+    if (!el.dataset.enHtml) el.dataset.enHtml = el.innerHTML;
+  });
+
   function setLang(lang) {
     const html = document.documentElement;
     html.setAttribute('lang', lang);
@@ -336,7 +344,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // data-ar / data-en text swap
     document.querySelectorAll('[data-ar]').forEach(el => {
       if (lang === 'ar') {
-        if (!el.dataset.en) el.dataset.en = el.textContent.trim();
         el.textContent = el.dataset.ar;
       } else if (el.dataset.en) {
         el.textContent = el.dataset.en;
@@ -346,7 +353,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // data-ar-html (for elements containing inner HTML like <strong> tags)
     document.querySelectorAll('[data-ar-html]').forEach(el => {
       if (lang === 'ar') {
-        if (!el.dataset.enHtml) el.dataset.enHtml = el.innerHTML;
         el.innerHTML = el.dataset.arHtml;
       } else if (el.dataset.enHtml) {
         el.innerHTML = el.dataset.enHtml;
